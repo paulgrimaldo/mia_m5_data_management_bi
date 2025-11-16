@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <Name>BookstoreDB_MCDIA</Name>
+    <Name>BookstoreDB_OLTP</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{4990b796-044d-406e-a1e7-3c05bce1f7eb}</ProjectGuid>
