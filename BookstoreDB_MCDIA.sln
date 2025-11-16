@@ -1,9 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36623.8 d17.14
+VisualStudioVersion = 17.14.36623.8
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "BookstoreDB_MCDIA", "BookstoreDB_MCDIA\BookstoreDB_MCDIA.sqlproj", "{4990B796-044D-406E-A1E7-3C05BCE1F7EB}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "BookstoreDB_OLTP", "BookstoreDB_MCDIA\BookstoreDB_OLTP.sqlproj", "{4990B796-044D-406E-A1E7-3C05BCE1F7EB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataBases", "DataBases", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OLTP", "OLTP", "{545CE3A8-23A0-4CE5-A621-78E9877F842F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DW", "DW", "{010DA706-4F4A-4D6A-B667-28C3031B851B}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "BookstoreDB_DW", "BookstoreDB_DW\BookstoreDB_DW.sqlproj", "{BB75D045-E1AD-4788-BBF6-3C94FF715496}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,9 +25,21 @@ Global
 		{4990B796-044D-406E-A1E7-3C05BCE1F7EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4990B796-044D-406E-A1E7-3C05BCE1F7EB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4990B796-044D-406E-A1E7-3C05BCE1F7EB}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{BB75D045-E1AD-4788-BBF6-3C94FF715496}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB75D045-E1AD-4788-BBF6-3C94FF715496}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB75D045-E1AD-4788-BBF6-3C94FF715496}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{BB75D045-E1AD-4788-BBF6-3C94FF715496}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB75D045-E1AD-4788-BBF6-3C94FF715496}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB75D045-E1AD-4788-BBF6-3C94FF715496}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4990B796-044D-406E-A1E7-3C05BCE1F7EB} = {545CE3A8-23A0-4CE5-A621-78E9877F842F}
+		{545CE3A8-23A0-4CE5-A621-78E9877F842F} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{010DA706-4F4A-4D6A-B667-28C3031B851B} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{BB75D045-E1AD-4788-BBF6-3C94FF715496} = {010DA706-4F4A-4D6A-B667-28C3031B851B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {56531024-16B6-4C8A-929F-F090F338DEDC}
