@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dw].[Dim_Book] (
+﻿CREATE TABLE [dbo].[DimBook] (
     [book_sk]          INT            IDENTITY (1, 1) NOT NULL,
     [book_id]          INT            NOT NULL,
     [title]            NVARCHAR (255) NOT NULL,

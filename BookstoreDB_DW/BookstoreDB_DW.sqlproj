@@ -61,14 +61,38 @@
     <Folder Include="dw\" />
     <Folder Include="dw\Tables\" />
     <Folder Include="Security\" />
+    <Folder Include="Scripts" />
+    <Folder Include="dw\Tables\dbo" />
+    <Folder Include="dw\Tables\staging" />
+    <Folder Include="dw\Programmability" />
+    <Folder Include="dw\Programmability\Stored Procedures" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="dw\Tables\Dim_Date.sql" />
-    <Build Include="dw\Tables\Dim_Book.sql" />
-    <Build Include="dw\Tables\Dim_Customer.sql" />
-    <Build Include="dw\Tables\Dim_ShippingMethod.sql" />
-    <Build Include="dw\Tables\Dim_OrderStatus.sql" />
-    <Build Include="dw\Tables\Fact_Sales.sql" />
     <Build Include="Security\dw.sql" />
+    <Build Include="dw\Tables\dbo\Dim_Book.sql" />
+    <Build Include="dw\Tables\dbo\Dim_Customer.sql" />
+    <Build Include="dw\Tables\dbo\Dim_Date.sql" />
+    <Build Include="dw\Tables\staging\staging.customer.sql" />
+    <Build Include="dw\Tables\staging\staging.shipping_method.sql" />
+    <Build Include="dw\Tables\staging\staging.order_status.sql" />
+    <Build Include="dw\Tables\staging\staging.book.sql" />
+    <Build Include="dw\Tables\staging\staging.sales.sql" />
+    <Build Include="staging.sql" />
+    <Build Include="dw\Programmability\Stored Procedures\GetLastPackageRowVersion.sql" />
+    <Build Include="dw\Programmability\Stored Procedures\UpdateLastPackageRowVersion.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Scripts\DimDate.data.sql" />
+    <None Include="Scripts\PackageConfig.data.sql" />
+    <None Include="Scripts\PatchDimDate.data.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Scripts\Script.PostDeployment.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dw\Tables\dbo\Dim_OrderStatus.sql" />
+    <Build Include="dw\Tables\dbo\Dim_ShippingMethod.sql" />
+    <Build Include="dw\Tables\dbo\Fact_Sales.sql" />
+    <Build Include="dw\Tables\dbo\PackageConfig.sql" />
   </ItemGroup>
 </Project>

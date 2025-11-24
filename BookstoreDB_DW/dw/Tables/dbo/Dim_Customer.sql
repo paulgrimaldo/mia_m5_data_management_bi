@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dw].[Dim_Customer] (
+﻿CREATE TABLE [dbo].[DimCustomer] (
     [customer_sk]  INT            IDENTITY (1, 1) NOT NULL,
     [customer_id]  INT            NOT NULL,
     [full_name]    NVARCHAR (255) NOT NULL,
