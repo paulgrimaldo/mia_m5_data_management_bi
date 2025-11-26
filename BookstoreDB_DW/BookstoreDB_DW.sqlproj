@@ -80,6 +80,7 @@
     <Build Include="staging.sql" />
     <Build Include="dw\Programmability\Stored Procedures\GetLastPackageRowVersion.sql" />
     <Build Include="dw\Programmability\Stored Procedures\UpdateLastPackageRowVersion.sql" />
+    <Build Include="dw\Programmability\Stored Procedures\DW_MergeDimShippingMethod.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\DimDate.data.sql" />

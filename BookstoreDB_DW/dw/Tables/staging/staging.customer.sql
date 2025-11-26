@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [staging].[customer]
 (
-	 customer_id         INT             NOT NULL,
+	CustomerSK          INT             NOT NULL,
     first_name          NVARCHAR(100)   NOT NULL,
     last_name           NVARCHAR(100)   NOT NULL,
     email               NVARCHAR(255)   NULL,
