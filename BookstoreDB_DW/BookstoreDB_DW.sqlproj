@@ -82,6 +82,9 @@
     <Build Include="dw\Programmability\Stored Procedures\UpdateLastPackageRowVersion.sql" />
     <Build Include="dw\Programmability\Stored Procedures\DW_MergeDimShippingMethod.sql" />
     <Build Include="dw\Programmability\Stored Procedures\DW_MergeDimBook.sql" />
+    <Build Include="dw\Tables\dbo\Dim_Address.sql" />
+    <Build Include="dw\Tables\staging\staging.address.sql" />
+    <Build Include="dw\Programmability\Stored Procedures\DW_MergeDimAdress.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\DimDate.data.sql" />

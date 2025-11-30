@@ -14,6 +14,5 @@
     quantity            INT             NOT NULL DEFAULT 1,
     unit_price          DECIMAL(5,2)   NOT NULL,
 
-    load_datetime       DATETIME2       NOT NULL DEFAULT SYSDATETIME(),
-    batch_id            INT             NULL
+    load_datetime       DATETIME2       NOT NULL DEFAULT SYSDATETIME()
 )

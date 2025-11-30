@@ -11,8 +11,8 @@
   DTS:LocaleID="16394"
   DTS:ObjectName="DimBookMethod"
   DTS:PackageType="5"
-  DTS:VersionBuild="48"
-  DTS:VersionGUID="{AFA36A31-2569-4888-A6FF-7C056F57FDBD}">
+  DTS:VersionBuild="58"
+  DTS:VersionGUID="{E25CFCCB-62DF-44FA-9EA3-E46A34A41DFE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -139,7 +139,7 @@ where [refTable].[book_sk] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[book_id]};</property>
+                  name="ParameterMap">#{Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[book_id]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -166,7 +166,7 @@ where [refTable].[book_sk] = ?</property>
                       refId="Package\Data Flow Task\Busqueda.Inputs[Lookup Input].Columns[book_id]"
                       cachedDataType="i4"
                       cachedName="book_id"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[book_id]">
+                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[book_id]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -240,11 +240,11 @@ where [refTable].[book_sk] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\Get Order Status"
+              refId="Package\Data Flow Task\Get Book"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
               description="OLE DB Source"
-              name="Get Order Status"
+              name="Get Book"
               usesDispositions="true"
               version="7">
               <properties>
@@ -289,7 +289,7 @@ where [refTable].[book_sk] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\Get Order Status.Connections[OleDbConnection]"
+                  refId="Package\Data Flow Task\Get Book.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[localhost.Bookstore]"
                   connectionManagerRefId="Package.ConnectionManagers[localhost.Bookstore]"
                   description="The OLE DB runtime connection used to access the database."
@@ -297,149 +297,149 @@ where [refTable].[book_sk] = ?</property>
               </connections>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output]"
+                  refId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output]"
                   name="OLE DB Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[book_id]"
+                      refId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[book_id]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[book_id]"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[book_id]"
+                      externalMetadataColumnId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].ExternalColumns[book_id]"
+                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[book_id]"
                       name="book_id"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[title]"
+                      refId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[title]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[title]"
+                      externalMetadataColumnId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].ExternalColumns[title]"
                       length="400"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[title]"
+                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[title]"
                       name="title"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[isbn13]"
+                      refId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[isbn13]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[isbn13]"
+                      externalMetadataColumnId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].ExternalColumns[isbn13]"
                       length="13"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[isbn13]"
+                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[isbn13]"
                       name="isbn13"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[language_code]"
+                      refId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[language_code]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[language_code]"
+                      externalMetadataColumnId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].ExternalColumns[language_code]"
                       length="8"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[language_code]"
+                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[language_code]"
                       name="language_code"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[language_name]"
+                      refId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[language_name]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[language_name]"
+                      externalMetadataColumnId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].ExternalColumns[language_name]"
                       length="50"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[language_name]"
+                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[language_name]"
                       name="language_name"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[num_pages]"
+                      refId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[num_pages]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[num_pages]"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[num_pages]"
+                      externalMetadataColumnId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].ExternalColumns[num_pages]"
+                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[num_pages]"
                       name="num_pages"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[publication_date]"
+                      refId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[publication_date]"
                       dataType="dbDate"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[publication_date]"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[publication_date]"
+                      externalMetadataColumnId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].ExternalColumns[publication_date]"
+                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[publication_date]"
                       name="publication_date"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[publisher_name]"
+                      refId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[publisher_name]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[publisher_name]"
+                      externalMetadataColumnId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].ExternalColumns[publisher_name]"
                       length="400"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[publisher_name]"
+                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[publisher_name]"
                       name="publisher_name"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[author_name]"
+                      refId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[author_name]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[author_name]"
+                      externalMetadataColumnId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].ExternalColumns[author_name]"
                       length="400"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[author_name]"
+                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[author_name]"
                       name="author_name"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[book_id]"
+                      refId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].ExternalColumns[book_id]"
                       dataType="i4"
                       name="book_id" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[title]"
+                      refId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].ExternalColumns[title]"
                       codePage="1252"
                       dataType="str"
                       length="400"
                       name="title" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[isbn13]"
+                      refId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].ExternalColumns[isbn13]"
                       codePage="1252"
                       dataType="str"
                       length="13"
                       name="isbn13" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[language_code]"
+                      refId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].ExternalColumns[language_code]"
                       codePage="1252"
                       dataType="str"
                       length="8"
                       name="language_code" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[language_name]"
+                      refId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].ExternalColumns[language_name]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="language_name" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[num_pages]"
+                      refId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].ExternalColumns[num_pages]"
                       dataType="i4"
                       name="num_pages" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[publication_date]"
+                      refId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].ExternalColumns[publication_date]"
                       dataType="dbDate"
                       name="publication_date" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[publisher_name]"
+                      refId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].ExternalColumns[publisher_name]"
                       codePage="1252"
                       dataType="str"
                       length="400"
                       name="publisher_name" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[author_name]"
+                      refId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].ExternalColumns[author_name]"
                       codePage="1252"
                       dataType="str"
                       length="400"
@@ -447,77 +447,77 @@ where [refTable].[book_sk] = ?</property>
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output]"
+                  refId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Error Output]"
                   isErrorOut="true"
                   name="OLE DB Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[book_id]"
+                      refId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Error Output].Columns[book_id]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[book_id]"
+                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Error Output].Columns[book_id]"
                       name="book_id" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[title]"
+                      refId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Error Output].Columns[title]"
                       codePage="1252"
                       dataType="str"
                       length="400"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[title]"
+                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Error Output].Columns[title]"
                       name="title" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[isbn13]"
+                      refId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Error Output].Columns[isbn13]"
                       codePage="1252"
                       dataType="str"
                       length="13"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[isbn13]"
+                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Error Output].Columns[isbn13]"
                       name="isbn13" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[language_code]"
+                      refId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Error Output].Columns[language_code]"
                       codePage="1252"
                       dataType="str"
                       length="8"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[language_code]"
+                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Error Output].Columns[language_code]"
                       name="language_code" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[language_name]"
+                      refId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Error Output].Columns[language_name]"
                       codePage="1252"
                       dataType="str"
                       length="50"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[language_name]"
+                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Error Output].Columns[language_name]"
                       name="language_name" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[num_pages]"
+                      refId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Error Output].Columns[num_pages]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[num_pages]"
+                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Error Output].Columns[num_pages]"
                       name="num_pages" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[publication_date]"
+                      refId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Error Output].Columns[publication_date]"
                       dataType="dbDate"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[publication_date]"
+                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Error Output].Columns[publication_date]"
                       name="publication_date" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[publisher_name]"
+                      refId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Error Output].Columns[publisher_name]"
                       codePage="1252"
                       dataType="str"
                       length="400"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[publisher_name]"
+                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Error Output].Columns[publisher_name]"
                       name="publisher_name" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[author_name]"
+                      refId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Error Output].Columns[author_name]"
                       codePage="1252"
                       dataType="str"
                       length="400"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[author_name]"
+                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Error Output].Columns[author_name]"
                       name="author_name" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      refId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -526,11 +526,11 @@ where [refTable].[book_sk] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\Load Order Status"
+              refId="Package\Data Flow Task\Load Book"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="Load Order Status"
+              name="Load Book"
               usesDispositions="true"
               version="4">
               <properties>
@@ -583,7 +583,7 @@ where [refTable].[book_sk] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\Load Order Status.Connections[OleDbConnection]"
+                  refId="Package\Data Flow Task\Load Book.Connections[OleDbConnection]"
                   connectionManagerID="{75F9CD8B-5704-49A8-AA98-E418097E010E}:external"
                   connectionManagerRefId="Project.ConnectionManagers[localhost.BookstoreDW]"
                   description="The OLE DB runtime connection used to access the database."
@@ -591,129 +591,129 @@ where [refTable].[book_sk] = ?</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input]"
+                  refId="Package\Data Flow Task\Load Book.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].Columns[book_id]"
+                      refId="Package\Data Flow Task\Load Book.Inputs[OLE DB Destination Input].Columns[book_id]"
                       cachedDataType="i4"
                       cachedName="book_id"
-                      externalMetadataColumnId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[book_id]"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[book_id]" />
+                      externalMetadataColumnId="Package\Data Flow Task\Load Book.Inputs[OLE DB Destination Input].ExternalColumns[book_id]"
+                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[book_id]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].Columns[title]"
+                      refId="Package\Data Flow Task\Load Book.Inputs[OLE DB Destination Input].Columns[title]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="400"
                       cachedName="title"
-                      externalMetadataColumnId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[title]"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[title]" />
+                      externalMetadataColumnId="Package\Data Flow Task\Load Book.Inputs[OLE DB Destination Input].ExternalColumns[title]"
+                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[title]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].Columns[isbn13]"
+                      refId="Package\Data Flow Task\Load Book.Inputs[OLE DB Destination Input].Columns[isbn13]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="13"
                       cachedName="isbn13"
-                      externalMetadataColumnId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[isbn13]"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[isbn13]" />
+                      externalMetadataColumnId="Package\Data Flow Task\Load Book.Inputs[OLE DB Destination Input].ExternalColumns[isbn13]"
+                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[isbn13]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].Columns[language_code]"
+                      refId="Package\Data Flow Task\Load Book.Inputs[OLE DB Destination Input].Columns[language_code]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="8"
                       cachedName="language_code"
-                      externalMetadataColumnId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[language_code]"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[language_code]" />
+                      externalMetadataColumnId="Package\Data Flow Task\Load Book.Inputs[OLE DB Destination Input].ExternalColumns[language_code]"
+                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[language_code]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].Columns[language_name]"
+                      refId="Package\Data Flow Task\Load Book.Inputs[OLE DB Destination Input].Columns[language_name]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="language_name"
-                      externalMetadataColumnId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[language_name]"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[language_name]" />
+                      externalMetadataColumnId="Package\Data Flow Task\Load Book.Inputs[OLE DB Destination Input].ExternalColumns[language_name]"
+                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[language_name]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].Columns[num_pages]"
+                      refId="Package\Data Flow Task\Load Book.Inputs[OLE DB Destination Input].Columns[num_pages]"
                       cachedDataType="i4"
                       cachedName="num_pages"
-                      externalMetadataColumnId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[num_pages]"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[num_pages]" />
+                      externalMetadataColumnId="Package\Data Flow Task\Load Book.Inputs[OLE DB Destination Input].ExternalColumns[num_pages]"
+                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[num_pages]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].Columns[publication_date]"
+                      refId="Package\Data Flow Task\Load Book.Inputs[OLE DB Destination Input].Columns[publication_date]"
                       cachedDataType="dbDate"
                       cachedName="publication_date"
-                      externalMetadataColumnId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[publication_date]"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[publication_date]" />
+                      externalMetadataColumnId="Package\Data Flow Task\Load Book.Inputs[OLE DB Destination Input].ExternalColumns[publication_date]"
+                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[publication_date]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].Columns[publisher_name]"
+                      refId="Package\Data Flow Task\Load Book.Inputs[OLE DB Destination Input].Columns[publisher_name]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="400"
                       cachedName="publisher_name"
-                      externalMetadataColumnId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[publisher_name]"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[publisher_name]" />
+                      externalMetadataColumnId="Package\Data Flow Task\Load Book.Inputs[OLE DB Destination Input].ExternalColumns[publisher_name]"
+                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[publisher_name]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].Columns[author_name]"
+                      refId="Package\Data Flow Task\Load Book.Inputs[OLE DB Destination Input].Columns[author_name]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="400"
                       cachedName="author_name"
-                      externalMetadataColumnId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[author_name]"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[author_name]" />
+                      externalMetadataColumnId="Package\Data Flow Task\Load Book.Inputs[OLE DB Destination Input].ExternalColumns[author_name]"
+                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[author_name]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[book_sk]"
+                      refId="Package\Data Flow Task\Load Book.Inputs[OLE DB Destination Input].ExternalColumns[book_sk]"
                       dataType="i4"
                       name="book_sk" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[book_id]"
+                      refId="Package\Data Flow Task\Load Book.Inputs[OLE DB Destination Input].ExternalColumns[book_id]"
                       dataType="i4"
                       name="book_id" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[title]"
+                      refId="Package\Data Flow Task\Load Book.Inputs[OLE DB Destination Input].ExternalColumns[title]"
                       codePage="1252"
                       dataType="str"
                       length="400"
                       name="title" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[isbn13]"
+                      refId="Package\Data Flow Task\Load Book.Inputs[OLE DB Destination Input].ExternalColumns[isbn13]"
                       codePage="1252"
                       dataType="str"
                       length="13"
                       name="isbn13" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[num_pages]"
+                      refId="Package\Data Flow Task\Load Book.Inputs[OLE DB Destination Input].ExternalColumns[num_pages]"
                       dataType="i4"
                       name="num_pages" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[publication_date]"
+                      refId="Package\Data Flow Task\Load Book.Inputs[OLE DB Destination Input].ExternalColumns[publication_date]"
                       dataType="dbDate"
                       name="publication_date" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[publisher_name]"
+                      refId="Package\Data Flow Task\Load Book.Inputs[OLE DB Destination Input].ExternalColumns[publisher_name]"
                       codePage="1252"
                       dataType="str"
                       length="400"
                       name="publisher_name" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[language_code]"
+                      refId="Package\Data Flow Task\Load Book.Inputs[OLE DB Destination Input].ExternalColumns[language_code]"
                       codePage="1252"
                       dataType="str"
                       length="8"
                       name="language_code" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[language_name]"
+                      refId="Package\Data Flow Task\Load Book.Inputs[OLE DB Destination Input].ExternalColumns[language_name]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="language_name" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[author_name]"
+                      refId="Package\Data Flow Task\Load Book.Inputs[OLE DB Destination Input].ExternalColumns[author_name]"
                       codePage="1252"
                       dataType="str"
                       length="400"
@@ -723,22 +723,22 @@ where [refTable].[book_sk] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Load Order Status.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\Data Flow Task\Load Book.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\Data Flow Task\Load Book.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Load Order Status.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\Data Flow Task\Load Book.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Load Order Status.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Data Flow Task\Load Book.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Load Order Status.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\Data Flow Task\Load Book.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Load Order Status.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Data Flow Task\Load Book.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -747,11 +747,11 @@ where [refTable].[book_sk] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\OLE DB Destination"
+              refId="Package\Data Flow Task\Updated Existing Book Method"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="OLE DB Destination"
+              name="Updated Existing Book Method"
               usesDispositions="true"
               version="4">
               <properties>
@@ -762,7 +762,7 @@ where [refTable].[book_sk] = ?</property>
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[DimBook]</property>
+                  name="OpenRowset">[staging].[book]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -804,7 +804,7 @@ where [refTable].[book_sk] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\OLE DB Destination.Connections[OleDbConnection]"
+                  refId="Package\Data Flow Task\Updated Existing Book Method.Connections[OleDbConnection]"
                   connectionManagerID="{75F9CD8B-5704-49A8-AA98-E418097E010E}:external"
                   connectionManagerRefId="Project.ConnectionManagers[localhost.BookstoreDW]"
                   description="The OLE DB runtime connection used to access the database."
@@ -812,160 +812,155 @@ where [refTable].[book_sk] = ?</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  refId="Package\Data Flow Task\Updated Existing Book Method.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[book_id]"
-                      cachedDataType="i4"
-                      cachedName="book_id"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[book_id]"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[book_id]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[title]"
+                      refId="Package\Data Flow Task\Updated Existing Book Method.Inputs[OLE DB Destination Input].Columns[title]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="400"
                       cachedName="title"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[title]"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[title]" />
+                      externalMetadataColumnId="Package\Data Flow Task\Updated Existing Book Method.Inputs[OLE DB Destination Input].ExternalColumns[title]"
+                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[title]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[isbn13]"
+                      refId="Package\Data Flow Task\Updated Existing Book Method.Inputs[OLE DB Destination Input].Columns[isbn13]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="13"
                       cachedName="isbn13"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[isbn13]"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[isbn13]" />
+                      externalMetadataColumnId="Package\Data Flow Task\Updated Existing Book Method.Inputs[OLE DB Destination Input].ExternalColumns[isbn13]"
+                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[isbn13]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[language_code]"
+                      refId="Package\Data Flow Task\Updated Existing Book Method.Inputs[OLE DB Destination Input].Columns[language_code]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="8"
                       cachedName="language_code"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[language_code]"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[language_code]" />
+                      externalMetadataColumnId="Package\Data Flow Task\Updated Existing Book Method.Inputs[OLE DB Destination Input].ExternalColumns[language_code]"
+                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[language_code]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[language_name]"
+                      refId="Package\Data Flow Task\Updated Existing Book Method.Inputs[OLE DB Destination Input].Columns[language_name]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="language_name"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[language_name]"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[language_name]" />
+                      externalMetadataColumnId="Package\Data Flow Task\Updated Existing Book Method.Inputs[OLE DB Destination Input].ExternalColumns[language_name]"
+                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[language_name]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[num_pages]"
+                      refId="Package\Data Flow Task\Updated Existing Book Method.Inputs[OLE DB Destination Input].Columns[num_pages]"
                       cachedDataType="i4"
                       cachedName="num_pages"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[num_pages]"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[num_pages]" />
+                      externalMetadataColumnId="Package\Data Flow Task\Updated Existing Book Method.Inputs[OLE DB Destination Input].ExternalColumns[num_pages]"
+                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[num_pages]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[publication_date]"
+                      refId="Package\Data Flow Task\Updated Existing Book Method.Inputs[OLE DB Destination Input].Columns[publication_date]"
                       cachedDataType="dbDate"
                       cachedName="publication_date"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[publication_date]"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[publication_date]" />
+                      externalMetadataColumnId="Package\Data Flow Task\Updated Existing Book Method.Inputs[OLE DB Destination Input].ExternalColumns[publication_date]"
+                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[publication_date]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[publisher_name]"
+                      refId="Package\Data Flow Task\Updated Existing Book Method.Inputs[OLE DB Destination Input].Columns[publisher_name]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="400"
                       cachedName="publisher_name"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[publisher_name]"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[publisher_name]" />
+                      externalMetadataColumnId="Package\Data Flow Task\Updated Existing Book Method.Inputs[OLE DB Destination Input].ExternalColumns[publisher_name]"
+                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[publisher_name]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[author_name]"
+                      refId="Package\Data Flow Task\Updated Existing Book Method.Inputs[OLE DB Destination Input].Columns[author_name]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="400"
                       cachedName="author_name"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[author_name]"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[author_name]" />
+                      externalMetadataColumnId="Package\Data Flow Task\Updated Existing Book Method.Inputs[OLE DB Destination Input].ExternalColumns[author_name]"
+                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[author_name]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[book_sk]"
+                      refId="Package\Data Flow Task\Updated Existing Book Method.Inputs[OLE DB Destination Input].Columns[book_sk]"
                       cachedDataType="i4"
                       cachedName="book_sk"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[book_sk]"
+                      externalMetadataColumnId="Package\Data Flow Task\Updated Existing Book Method.Inputs[OLE DB Destination Input].ExternalColumns[BookSK]"
                       lineageId="Package\Data Flow Task\Busqueda.Outputs[Lookup Match Output].Columns[book_sk]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[book_sk]"
-                      dataType="i4"
-                      name="book_sk" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[book_id]"
-                      dataType="i4"
-                      name="book_id" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[title]"
+                      refId="Package\Data Flow Task\Updated Existing Book Method.Inputs[OLE DB Destination Input].ExternalColumns[title]"
                       codePage="1252"
                       dataType="str"
                       length="400"
                       name="title" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[isbn13]"
+                      refId="Package\Data Flow Task\Updated Existing Book Method.Inputs[OLE DB Destination Input].ExternalColumns[isbn13]"
                       codePage="1252"
                       dataType="str"
                       length="13"
                       name="isbn13" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[num_pages]"
+                      refId="Package\Data Flow Task\Updated Existing Book Method.Inputs[OLE DB Destination Input].ExternalColumns[num_pages]"
                       dataType="i4"
                       name="num_pages" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[publication_date]"
+                      refId="Package\Data Flow Task\Updated Existing Book Method.Inputs[OLE DB Destination Input].ExternalColumns[publication_date]"
                       dataType="dbDate"
                       name="publication_date" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[publisher_name]"
+                      refId="Package\Data Flow Task\Updated Existing Book Method.Inputs[OLE DB Destination Input].ExternalColumns[publisher_name]"
                       codePage="1252"
                       dataType="str"
                       length="400"
                       name="publisher_name" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[language_code]"
+                      refId="Package\Data Flow Task\Updated Existing Book Method.Inputs[OLE DB Destination Input].ExternalColumns[language_code]"
                       codePage="1252"
                       dataType="str"
                       length="8"
                       name="language_code" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[language_name]"
+                      refId="Package\Data Flow Task\Updated Existing Book Method.Inputs[OLE DB Destination Input].ExternalColumns[language_name]"
                       codePage="1252"
                       dataType="str"
                       length="50"
                       name="language_name" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[author_name]"
+                      refId="Package\Data Flow Task\Updated Existing Book Method.Inputs[OLE DB Destination Input].ExternalColumns[author_name]"
                       codePage="1252"
                       dataType="str"
                       length="400"
                       name="author_name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Updated Existing Book Method.Inputs[OLE DB Destination Input].ExternalColumns[BookSK]"
+                      dataType="i4"
+                      name="BookSK" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Updated Existing Book Method.Inputs[OLE DB Destination Input].ExternalColumns[load_datetime]"
+                      dataType="dbTimeStamp2"
+                      name="load_datetime"
+                      scale="7" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\Data Flow Task\Updated Existing Book Method.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\Data Flow Task\Updated Existing Book Method.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\Data Flow Task\Updated Existing Book Method.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Data Flow Task\Updated Existing Book Method.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\Data Flow Task\Updated Existing Book Method.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Data Flow Task\Updated Existing Book Method.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -977,19 +972,19 @@ where [refTable].[book_sk] = ?</property>
           <paths>
             <path
               refId="Package\Data Flow Task.Paths[Lookup Match Output]"
-              endId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              endId="Package\Data Flow Task\Updated Existing Book Method.Inputs[OLE DB Destination Input]"
               name="Lookup Match Output"
               startId="Package\Data Flow Task\Busqueda.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Data Flow Task.Paths[Lookup No Match Output]"
-              endId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input]"
+              endId="Package\Data Flow Task\Load Book.Inputs[OLE DB Destination Input]"
               name="Lookup No Match Output"
               startId="Package\Data Flow Task\Busqueda.Outputs[Lookup No Match Output]" />
             <path
               refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
               endId="Package\Data Flow Task\Busqueda.Inputs[Lookup Input]"
               name="OLE DB Source Output"
-              startId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output]" />
+              startId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -1273,35 +1268,47 @@ where [refTable].[book_sk] = ?</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="162,42"
-          Id="Package\Data Flow Task\Get Order Status"
+          Size="125,42"
+          Id="Package\Data Flow Task\Get Book"
           TopLeft="400,142" />
         <NodeLayout
-          Size="169,42"
-          Id="Package\Data Flow Task\Load Order Status"
+          Size="131,42"
+          Id="Package\Data Flow Task\Load Book"
           TopLeft="656,359" />
         <NodeLayout
           Size="129,42"
           Id="Package\Data Flow Task\Busqueda"
           TopLeft="422,249" />
         <NodeLayout
-          Size="177,42"
-          Id="Package\Data Flow Task\OLE DB Destination"
-          TopLeft="294,359" />
+          Size="230,42"
+          Id="Package\Data Flow Task\Updated Existing Book Method"
+          TopLeft="295,360" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
-          TopLeft="483.75,184">
+          TopLeft="462.5,184">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,65"
+              EndConnector="24,65"
               Start="0,0"
-              End="0,57.5">
+              End="24,57.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,57.5" />
+                    End="0,28.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,28.5"
+                    Point2="0,32.5"
+                    Point3="4,32.5" />
+                  <mssgle:LineSegment
+                    End="20,32.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="20,32.5"
+                    Point2="24,32.5"
+                    Point3="24,36.5" />
+                  <mssgle:LineSegment
+                    End="24,57.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1312,37 +1319,37 @@ where [refTable].[book_sk] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Lookup No Match Output]"
-          TopLeft="486.5,291">
+          TopLeft="506.666666666667,291">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="254,68"
+              EndConnector="214.833333333333,68"
               Start="0,0"
-              End="254,60.5">
+              End="214.833333333333,60.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,30" />
+                    End="0,23.6998468606432" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,30"
-                    Point2="0,34"
-                    Point3="4,34" />
+                    Point1="0,23.6998468606432"
+                    Point2="0,27.6998468606432"
+                    Point3="4,27.6998468606432" />
                   <mssgle:LineSegment
-                    End="250,34" />
+                    End="210.833333333333,27.6998468606432" />
                   <mssgle:CubicBezierSegment
-                    Point1="250,34"
-                    Point2="254,34"
-                    Point3="254,38" />
+                    Point1="210.833333333333,27.6998468606432"
+                    Point2="214.833333333333,27.6998468606432"
+                    Point3="214.833333333333,31.6998468606432" />
                   <mssgle:LineSegment
-                    End="254,60.5" />
+                    End="214.833333333333,60.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="71.19361328125,39,111.6127734375,11.609375"
+              BoundingBox="51.6102799479167,32.6998468606432,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1352,33 +1359,33 @@ where [refTable].[book_sk] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-83.8333333333333,68"
+              EndConnector="-56.3333333333333,69"
               Start="0,0"
-              End="-83.8333333333333,60.5">
+              End="-56.3333333333333,61.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.6998468606432" />
+                    End="0,24.1071975497703" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,23.6998468606432"
-                    Point2="0,27.6998468606432"
-                    Point3="-4,27.6998468606432" />
+                    Point1="0,24.1071975497703"
+                    Point2="0,28.1071975497703"
+                    Point3="-4,28.1071975497703" />
                   <mssgle:LineSegment
-                    End="-79.8333333333333,27.6998468606432" />
+                    End="-52.3333333333333,28.1071975497703" />
                   <mssgle:CubicBezierSegment
-                    Point1="-79.8333333333333,27.6998468606432"
-                    Point2="-83.8333333333333,27.6998468606432"
-                    Point3="-83.8333333333333,31.6998468606432" />
+                    Point1="-52.3333333333333,28.1071975497703"
+                    Point2="-56.3333333333333,28.1071975497703"
+                    Point3="-56.3333333333333,32.1071975497703" />
                   <mssgle:LineSegment
-                    End="-83.8333333333333,60.5" />
+                    End="-56.3333333333333,61.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-90.1080533854167,32.6998468606432,96.3827734375,11.609375"
+              BoundingBox="-76.3580533854167,33.1071975497703,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1386,7 +1393,7 @@ where [refTable].[book_sk] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Get Order Status">
+    design-time-name="Package\Data Flow Task\Get Book">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1394,7 +1401,7 @@ where [refTable].[book_sk] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Load Order Status">
+    design-time-name="Package\Data Flow Task\Load Book">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1430,7 +1437,7 @@ where [refTable].[book_sk] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\OLE DB Destination">
+    design-time-name="Package\Data Flow Task\Updated Existing Book Method">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
