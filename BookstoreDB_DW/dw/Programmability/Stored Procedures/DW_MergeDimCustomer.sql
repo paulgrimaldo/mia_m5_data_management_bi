@@ -7,7 +7,6 @@ BEGIN
     SET     
             dc.first_name   = sc.first_name,
             dc.last_name    = sc.last_name,
-            dc.full_name    = sc.first_name + ' ' + sc.last_name,
             dc.email        = sc.email,
             dc.city         = sc.city,
             dc.country_name = sc.country_name
