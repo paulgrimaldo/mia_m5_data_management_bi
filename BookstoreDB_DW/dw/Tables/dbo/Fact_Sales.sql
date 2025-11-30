@@ -8,7 +8,7 @@
     [order_id]           INT             NOT NULL,
     [line_id]            INT             NOT NULL,
     [quantity]           INT             DEFAULT ((1)) NOT NULL,
-    [unit_price]         DECIMAL (10, 2) NOT NULL,
+    [unit_price]         DECIMAL (5, 2) NOT NULL,
     [line_amount]        DECIMAL (10, 2) NOT NULL,
     PRIMARY KEY CLUSTERED ([sales_sk] ASC),
     FOREIGN KEY ([book_sk]) REFERENCES [dbo].[DimBook] ([book_sk]),

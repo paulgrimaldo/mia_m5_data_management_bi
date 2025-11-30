@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="DimOrder"
   DTS:PackageType="5"
-  DTS:VersionBuild="27"
-  DTS:VersionGUID="{563B7B1C-CA97-4A5A-A0AB-C7BC4D57A9A8}">
+  DTS:VersionBuild="35"
+  DTS:VersionGUID="{232F78AC-393B-4C77-B18E-E8BF7216A2AB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -38,6 +38,30 @@
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Initial Catalog=BookStoreDW;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-DimOrder-{875D697C-93CD-4DFF-BE81-B23032C82431}Conexión de datos1;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.Bookstore]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{BB4AAE87-1427-4873-A49C-27D6E7E32F63}"
+      DTS:ObjectName="localhost.Bookstore">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=Bookstore;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-DimOrder-{BB4AAE87-1427-4873-A49C-27D6E7E32F63}localhost.Bookstore;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.BookstoreDW 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{92C2A03C-C3C3-43D9-992F-6A73746F7430}"
+      DTS:ObjectName="localhost.BookstoreDW 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=BookstoreDW;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-DimOrder-{92C2A03C-C3C3-43D9-992F-6A73746F7430}localhost.BookstoreDW 1;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -76,7 +100,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{875D697C-93CD-4DFF-BE81-B23032C82431}"
+          SQLTask:Connection="{75F9CD8B-5704-49A8-AA98-E418097E010E}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE staging.shipping_method;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -92,7 +116,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{29858E42-A754-4913-9E5A-7BC48AAA5A6D}"
+          SQLTask:Connection="{BB4AAE87-1427-4873-A49C-27D6E7E32F63}"
           SQLTask:SqlStatementSource="EXECUTE [dbo].[GetDatabaseRowVersion] "
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
@@ -124,7 +148,7 @@
       </DTS:Variables>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{875D697C-93CD-4DFF-BE81-B23032C82431}"
+          SQLTask:Connection="{75F9CD8B-5704-49A8-AA98-E418097E010E}"
           SQLTask:SqlStatementSource="EXECUTE [dbo].[GetLastPackageRowVersion] @tableName = 'ShippingMethod'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
@@ -355,8 +379,8 @@ where [refTable].[method_id] = ?</property>
               <connections>
                 <connection
                   refId="Package\Load Shipping Methods\Get Shipping Methods.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Conexión de datos]"
-                  connectionManagerRefId="Package.ConnectionManagers[Conexión de datos]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.Bookstore]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.Bookstore]"
                   description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
                   name="OleDbConnection" />
               </connections>
@@ -573,7 +597,7 @@ where [refTable].[method_id] = ?</property>
                       refId="Package\Load Shipping Methods\New Shipping Method.Inputs[Entrada de destino de OLE DB].ExternalColumns[base_cost]"
                       dataType="numeric"
                       name="base_cost"
-                      precision="10"
+                      precision="6"
                       scale="2" />
                   </externalMetadataColumns>
                 </input>
@@ -714,7 +738,7 @@ where [refTable].[method_id] = ?</property>
                       refId="Package\Load Shipping Methods\Updated Existing Shipping Method.Inputs[Entrada de destino de OLE DB].ExternalColumns[base_cost]"
                       dataType="numeric"
                       name="base_cost"
-                      precision="10"
+                      precision="6"
                       scale="2" />
                     <externalMetadataColumn
                       refId="Package\Load Shipping Methods\Updated Existing Shipping Method.Inputs[Entrada de destino de OLE DB].ExternalColumns[load_datetime]"
@@ -786,7 +810,7 @@ where [refTable].[method_id] = ?</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{875D697C-93CD-4DFF-BE81-B23032C82431}"
+          SQLTask:Connection="{75F9CD8B-5704-49A8-AA98-E418097E010E}"
           SQLTask:SqlStatementSource="EXECUTE [dbo].[DW_MergeDimShippingMethod] " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -802,7 +826,7 @@ where [refTable].[method_id] = ?</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{875D697C-93CD-4DFF-BE81-B23032C82431}"
+          SQLTask:Connection="{75F9CD8B-5704-49A8-AA98-E418097E010E}"
           SQLTask:SqlStatementSource="EXECUTE [dbo].[UpdateLastPackageRowVersion] @tableName = 'ShippingMethod' ,@lastRowVersion = ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ParameterBinding
             SQLTask:ParameterName="0"
@@ -869,35 +893,43 @@ where [refTable].[method_id] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="154.4,41.6"
+          Size="154,42"
           Id="Package\clean-up staging"
           TopLeft="162.499991121392,311.999997830391" />
         <NodeLayout
-          Size="171.2,41.6"
+          Size="171,42"
           Id="Package\Get DB RowVersion"
-          TopLeft="148.833325501946,104.299999312957" />
+          TopLeft="149.833325501946,104.299999312957" />
         <NodeLayout
-          Size="176.8,41.6"
+          Size="177,42"
           Id="Package\Get Last RowVersion"
           TopLeft="139.166659062936,203.666665250394" />
         <NodeLayout
-          Size="187.2,41.6"
+          Size="187,42"
           Id="Package\Load Shipping Methods"
           TopLeft="150.833325092164,400.399997215668" />
+        <NodeLayout
+          Size="140,42"
+          Id="Package\Sync Staging"
+          TopLeft="159.166657970184,487.933329940306" />
+        <NodeLayout
+          Size="188,42"
+          Id="Package\Update Package Config"
+          TopLeft="159.999991257986,581.666663984789" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción]"
-          TopLeft="230.999992282441,145.899999312957">
+          TopLeft="231.499992282441,146.299999312957">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,57.766665937437"
+              EndConnector="0,57.366665937437"
               Start="0,0"
-              End="0,50.266665937437">
+              End="0,49.866665937437">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,50.266665937437" />
+                    End="0,49.866665937437" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -962,10 +994,6 @@ where [refTable].[method_id] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="140,41.6"
-          Id="Package\Sync Staging"
-          TopLeft="159.166657970184,487.933329940306" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 3]"
           TopLeft="244.433325092164,441.999997215668">
@@ -1000,10 +1028,6 @@ where [refTable].[method_id] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="188,41.6"
-          Id="Package\Update Package Config"
-          TopLeft="159.999991257986,581.666663984789" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Restricción 4]"
           TopLeft="229.166657970184,529.533329940306">
@@ -1042,7 +1066,7 @@ where [refTable].[method_id] = ?</property>
           Text="asdfasdf"
           ParentId="Package"
           FontInfo="{assembly:Null}"
-          Size="72.8,60"
+          Size="73,40"
           Id="71d800a5-18d3-4298-9410-661d53572b00"
           TopLeft="413.333310749797,356.999999114076" />
       </GraphLayout>
@@ -1054,19 +1078,19 @@ where [refTable].[method_id] = ?</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="180.8,41.6"
+          Size="181,42"
           Id="Package\Load Shipping Methods\Get Shipping Methods"
           TopLeft="189.999997168779,208.999996885657" />
         <NodeLayout
-          Size="237.6,41.6"
+          Size="238,42"
           Id="Package\Load Shipping Methods\Updated Existing Shipping Method"
           TopLeft="21.6666654828521,438.533330283827" />
         <NodeLayout
-          Size="180,41.6"
+          Size="180,42"
           Id="Package\Load Shipping Methods\New Shipping Method"
           TopLeft="314.99998278916,435.933330301907" />
         <NodeLayout
-          Size="125.6,41.6"
+          Size="126,42"
           Id="Package\Load Shipping Methods\Búsqueda"
           TopLeft="209.166655238304,325.866664400631" />
         <EdgeLayout
@@ -1100,9 +1124,7 @@ where [refTable].[method_id] = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-18.0552451839873,42.6333337574868,27.6771484375,9.7978515625"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1173,7 +1195,7 @@ where [refTable].[method_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-174.242397221476,33.9630185486236,236.5848046875,12.1953125"
+              BoundingBox="-174.242397221476,33.9630185486236,199.638046875,12.1953125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
