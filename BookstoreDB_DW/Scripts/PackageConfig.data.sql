@@ -33,3 +33,10 @@ IF NOT EXISTS(SELECT TOP(1) 1
 	INSERT [dbo].[PackageConfig] ([TableName], [LastRowVersion]) VALUES ('Sales', 0)
  END
 GO
+IF NOT EXISTS(SELECT TOP(1) 1
+              FROM [dbo].[PackageConfig]
+			  WHERE [TableName] = 'Address')
+ BEGIN
+	INSERT [dbo].[PackageConfig] ([TableName], [LastRowVersion]) VALUES ('Address', 0)
+ END
+GO

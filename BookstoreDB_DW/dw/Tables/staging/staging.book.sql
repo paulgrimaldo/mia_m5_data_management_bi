@@ -13,6 +13,5 @@
     author_name      VARCHAR (400) NULL,
 
 
-    load_datetime       DATETIME2       NOT NULL DEFAULT SYSDATETIME(),
-    batch_id            INT             NULL
+    load_datetime       DATETIME2       NOT NULL DEFAULT SYSDATETIME()
 )
