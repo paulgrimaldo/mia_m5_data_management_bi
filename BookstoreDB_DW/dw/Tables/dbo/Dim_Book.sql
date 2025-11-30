@@ -8,6 +8,7 @@
     [publisher_name]   VARCHAR (400) NULL,
     [language_code]    VARCHAR (8)  NULL,
     [language_name]    VARCHAR (50) NULL,
+    [author_name]      VARCHAR (400) NULL,
     PRIMARY KEY CLUSTERED ([book_sk] ASC)
 );
 

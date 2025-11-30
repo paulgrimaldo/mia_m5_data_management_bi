@@ -12,6 +12,8 @@
     language_id         INT             NULL,
     language_code    VARCHAR (8)  NULL,
     language_name    VARCHAR (50) NULL,
+    author_name      VARCHAR (400) NULL,
+
 
     load_datetime       DATETIME2       NOT NULL DEFAULT SYSDATETIME(),
     batch_id            INT             NULL

@@ -81,13 +81,14 @@
     <Build Include="dw\Programmability\Stored Procedures\GetLastPackageRowVersion.sql" />
     <Build Include="dw\Programmability\Stored Procedures\UpdateLastPackageRowVersion.sql" />
     <Build Include="dw\Programmability\Stored Procedures\DW_MergeDimShippingMethod.sql" />
+    <Build Include="dw\Programmability\Stored Procedures\DW_MergeDimBook.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\DimDate.data.sql" />
     <None Include="Scripts\PackageConfig.data.sql" />
     <None Include="Scripts\PatchDimDate.data.sql" />
-    <None Include="dw\Programmability\Stored Procedures\DW_MergeDimOrderStatus.sql" />
-    <None Include="dw\Programmability\Stored Procedures\DW_MergeDimCustomer.sql" />
+    <Build Include="dw\Programmability\Stored Procedures\DW_MergeDimOrderStatus.sql" />
+    <Build Include="dw\Programmability\Stored Procedures\DW_MergeDimCustomer.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Scripts\Script.PostDeployment.sql" />
