@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [staging].[sales]
 (
-	OrderSK             INT             NOT NULL,
-    line_id             INT             NOT NULL,
+	OrderId             INT             NOT NULL,
+    LineId             INT             NOT NULL,
     order_date_key      INT        NOT NULL,
     dest_address_sk     INT             NOT NULL,
 
