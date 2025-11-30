@@ -1,17 +1,11 @@
 ﻿CREATE TABLE [staging].[customer]
 (
 	CustomerSK          INT             NOT NULL,
-    first_name          NVARCHAR(100)   NOT NULL,
-    last_name           NVARCHAR(100)   NOT NULL,
-    email               NVARCHAR(255)   NULL,
-
-    address_id          INT             NULL,
-    address             NVARCHAR(255)   NULL,
-    city                NVARCHAR(100)   NULL,
-    zip_code            NVARCHAR(20)    NULL,
-
-    country_id          INT             NULL,
-    country_name        NVARCHAR(100)   NULL,
+   first_name   VARCHAR (200)  NULL,
+    last_name    VARCHAR (200)  NULL,
+    email        VARCHAR (350) NULL,
+    city         VARCHAR (100) NULL,
+    country_name VARCHAR (200) NULL,
 
     load_datetime       DATETIME2       NOT NULL DEFAULT SYSDATETIME(),
     batch_id            INT             NULL
