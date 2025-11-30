@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="DimOrder"
   DTS:PackageType="5"
-  DTS:VersionBuild="35"
-  DTS:VersionGUID="{232F78AC-393B-4C77-B18E-E8BF7216A2AB}">
+  DTS:VersionBuild="36"
+  DTS:VersionGUID="{E7F4D242-D52C-4493-99A5-A8E2C65627E1}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -745,10 +745,6 @@ where [refTable].[method_id] = ?</property>
                       dataType="dbTimeStamp2"
                       name="load_datetime"
                       scale="7" />
-                    <externalMetadataColumn
-                      refId="Package\Load Shipping Methods\Updated Existing Shipping Method.Inputs[Entrada de destino de OLE DB].ExternalColumns[batch_id]"
-                      dataType="i4"
-                      name="batch_id" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -1082,7 +1078,7 @@ where [refTable].[method_id] = ?</property>
           Id="Package\Load Shipping Methods\Get Shipping Methods"
           TopLeft="189.999997168779,208.999996885657" />
         <NodeLayout
-          Size="238,42"
+          Size="248,42"
           Id="Package\Load Shipping Methods\Updated Existing Shipping Method"
           TopLeft="21.6666654828521,438.533330283827" />
         <NodeLayout
@@ -1165,37 +1161,37 @@ where [refTable].[method_id] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Shipping Methods.Paths[Salida de entradas coincidentes de búsqueda]"
-          TopLeft="252.366655238304,367.466664400631">
+          TopLeft="252.499988571637,367.866664400631">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-111.899989755452,71.0666658831967"
+              EndConnector="-106.833323088785,70.666665883196"
               Start="0,0"
-              End="-111.899989755452,63.5666658831967">
+              End="-106.833323088785,63.166665883196">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,24.9630185486236" />
+                    End="0,24.7983277893902" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,24.9630185486236"
-                    Point2="0,28.9630185486236"
-                    Point3="-4,28.9630185486236" />
+                    Point1="0,24.7983277893902"
+                    Point2="0,28.7983277893902"
+                    Point3="-4,28.7983277893902" />
                   <mssgle:LineSegment
-                    End="-107.899989755452,28.9630185486236" />
+                    End="-102.833323088785,28.7983277893902" />
                   <mssgle:CubicBezierSegment
-                    Point1="-107.899989755452,28.9630185486236"
-                    Point2="-111.899989755452,28.9630185486236"
-                    Point3="-111.899989755452,32.9630185486236" />
+                    Point1="-102.833323088785,28.7983277893902"
+                    Point2="-106.833323088785,28.7983277893902"
+                    Point3="-106.833323088785,32.7983277893902" />
                   <mssgle:LineSegment
-                    End="-111.899989755452,63.5666658831967" />
+                    End="-106.833323088785,63.166665883196" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-174.242397221476,33.9630185486236,199.638046875,12.1953125"
+              BoundingBox="-153.235684981893,33.7983277893902,199.638046875,12.1953125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
