@@ -24,6 +24,7 @@ BEGIN
 	,ol.[line_id]
 	,ol.[price]
 	,1 as quantity
+	,ol.[price] * 1 as line_amount
   FROM [dbo].[cust_order] co
   JOIN [dbo].[order_line] ol on (co.order_id = ol.order_id)
   WHERE (co.[rowversion] > CONVERT(ROWVERSION,@startRow) AND co.[rowversion] <= CONVERT(ROWVERSION,@endRow))

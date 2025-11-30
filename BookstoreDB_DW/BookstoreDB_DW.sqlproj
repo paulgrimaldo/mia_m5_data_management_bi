@@ -47,6 +47,7 @@
     <DefineTrace>true</DefineTrace>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <SqlTargetName>BookstoreDW</SqlTargetName>
   </PropertyGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
@@ -85,7 +86,7 @@
     <Build Include="dw\Programmability\Stored Procedures\DW_MergeFactSales.sql" />
     <Build Include="dw\Tables\dbo\Dim_Address.sql" />
     <Build Include="dw\Tables\staging\staging.address.sql" />
-    <Build Include="dw\Programmability\Stored Procedures\DW_MergeDimAdress.sql" />
+    <Build Include="dw\Programmability\Stored Procedures\DW_MergeDimAddress.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\DimDate.data.sql" />

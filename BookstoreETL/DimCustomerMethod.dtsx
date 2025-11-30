@@ -11,8 +11,8 @@
   DTS:LocaleID="16394"
   DTS:ObjectName="DimCustomerMethod"
   DTS:PackageType="5"
-  DTS:VersionBuild="55"
-  DTS:VersionGUID="{59E92002-BC82-4E55-AFD8-8FF0E037CB38}">
+  DTS:VersionBuild="56"
+  DTS:VersionGUID="{E056E951-9088-4094-AC5A-685EBE017DBF}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1200,7 +1200,7 @@ where [refTable].[customer_sk] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -1210,7 +1210,7 @@ where [refTable].[customer_sk] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>

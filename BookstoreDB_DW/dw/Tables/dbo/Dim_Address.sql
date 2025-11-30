@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[DimAdress] (
+﻿CREATE TABLE [dbo].[DimAddress] (
     [address_sk]  INT            IDENTITY (1, 1) NOT NULL,  
     [address_id]  INT            NOT NULL,
     [city]         VARCHAR (100) NULL,

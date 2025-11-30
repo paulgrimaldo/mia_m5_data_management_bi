@@ -14,6 +14,7 @@
     FOREIGN KEY ([book_sk]) REFERENCES [dbo].[DimBook] ([book_sk]),
     FOREIGN KEY ([customer_sk]) REFERENCES [dbo].[DimCustomer] ([customer_sk]),
     FOREIGN KEY ([order_date_key]) REFERENCES [dbo].[DimDate] ([DateKey]),
-    FOREIGN KEY ([shipping_method_sk]) REFERENCES [dbo].[DimShippingMethod] ([shipping_method_sk])
+    FOREIGN KEY ([shipping_method_sk]) REFERENCES [dbo].[DimShippingMethod] ([shipping_method_sk]),
+    FOREIGN KEY ([dest_address_sk]) REFERENCES [dbo].[DimAddress] ([address_sk])
 );
 

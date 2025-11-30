@@ -21,7 +21,6 @@ BEGIN
 
     WHEN NOT MATCHED BY TARGET THEN
         INSERT (
-              order_sk,
               order_date_key,
               book_sk,
               customer_sk,
@@ -34,7 +33,6 @@ BEGIN
               line_amount
         )
         VALUES (
-              s.OrderSK,
               s.order_date_key,
               s.book_sk,
               s.customer_sk,

@@ -11,8 +11,8 @@
   DTS:LocaleID="16394"
   DTS:ObjectName="FactSales"
   DTS:PackageType="5"
-  DTS:VersionBuild="56"
-  DTS:VersionGUID="{053F7BF2-6A73-479B-8DE4-5FD9BF7ADB38}">
+  DTS:VersionBuild="61"
+  DTS:VersionGUID="{59DD8EC9-C715-4E2E-9C42-887CE04CFE19}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -383,6 +383,17 @@ where [refTable].[book_sk] = ?</property>
                       lineageId="Package\Data Flow Task\Get Sales.Outputs[OLE DB Source Output].Columns[quantity]"
                       name="quantity"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Get Sales.Outputs[OLE DB Source Output].Columns[line_amount]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Get Sales.Outputs[OLE DB Source Output].ExternalColumns[line_amount]"
+                      lineageId="Package\Data Flow Task\Get Sales.Outputs[OLE DB Source Output].Columns[line_amount]"
+                      name="line_amount"
+                      precision="7"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -424,6 +435,12 @@ where [refTable].[book_sk] = ?</property>
                       refId="Package\Data Flow Task\Get Sales.Outputs[OLE DB Source Output].ExternalColumns[quantity]"
                       dataType="i4"
                       name="quantity" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Get Sales.Outputs[OLE DB Source Output].ExternalColumns[line_amount]"
+                      dataType="numeric"
+                      name="line_amount"
+                      precision="7"
+                      scale="2" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -478,6 +495,13 @@ where [refTable].[book_sk] = ?</property>
                       dataType="i4"
                       lineageId="Package\Data Flow Task\Get Sales.Outputs[OLE DB Source Error Output].Columns[quantity]"
                       name="quantity" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Get Sales.Outputs[OLE DB Source Error Output].Columns[line_amount]"
+                      dataType="numeric"
+                      lineageId="Package\Data Flow Task\Get Sales.Outputs[OLE DB Source Error Output].Columns[line_amount]"
+                      name="line_amount"
+                      precision="7"
+                      scale="2" />
                     <outputColumn
                       refId="Package\Data Flow Task\Get Sales.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
@@ -623,6 +647,14 @@ where [refTable].[book_sk] = ?</property>
                       cachedName="order_id"
                       externalMetadataColumnId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[order_id]"
                       lineageId="Package\Data Flow Task\Get Sales.Outputs[OLE DB Source Output].Columns[order_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].Columns[line_amount]"
+                      cachedDataType="numeric"
+                      cachedName="line_amount"
+                      cachedPrecision="7"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[line_amount]"
+                      lineageId="Package\Data Flow Task\Get Sales.Outputs[OLE DB Source Output].Columns[line_amount]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -787,12 +819,6 @@ where [refTable].[book_sk] = ?</property>
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[quantity]"
                       lineageId="Package\Data Flow Task\Get Sales.Outputs[OLE DB Source Output].Columns[quantity]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[order_id]"
-                      cachedDataType="i4"
-                      cachedName="order_id"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OrderSK]"
-                      lineageId="Package\Data Flow Task\Get Sales.Outputs[OLE DB Source Output].Columns[order_id]" />
-                    <inputColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[OrderDateKey]"
                       cachedDataType="i4"
                       cachedName="OrderDateKey"
@@ -830,6 +856,12 @@ where [refTable].[book_sk] = ?</property>
                       cachedScale="2"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[unit_price]"
                       lineageId="Package\Data Flow Task\Get Sales.Outputs[OLE DB Source Output].Columns[price]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[order_id]"
+                      cachedDataType="i4"
+                      cachedName="order_id"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[OrderSK]"
+                      lineageId="Package\Data Flow Task\Get Sales.Outputs[OLE DB Source Output].Columns[order_id]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -980,7 +1012,7 @@ where [refTable].[book_sk] = ?</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{75F9CD8B-5704-49A8-AA98-E418097E010E}"
-          SQLTask:SqlStatementSource="EXECUTE [dbo].[DW_MergeFactSales] " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="EXECUTE [dbo].[DW_MergeFactSales]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -1208,6 +1240,10 @@ where [refTable].[book_sk] = ?</property>
           Id="Package\Data Flow Task\Get Sales"
           TopLeft="400,142" />
         <NodeLayout
+          Size="177,42"
+          Id="Package\Data Flow Task\OLE DB Destination"
+          TopLeft="294,359" />
+        <NodeLayout
           Size="169,42"
           Id="Package\Data Flow Task\Load Order Status"
           TopLeft="656,359" />
@@ -1215,10 +1251,42 @@ where [refTable].[book_sk] = ?</property>
           Size="129,42"
           Id="Package\Data Flow Task\Busqueda"
           TopLeft="422,249" />
-        <NodeLayout
-          Size="177,42"
-          Id="Package\Data Flow Task\OLE DB Destination"
-          TopLeft="294,359" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Lookup Match Output]"
+          TopLeft="466.333333333333,291">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-83.8333333333333,68"
+              Start="0,0"
+              End="-83.8333333333333,60.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.6998468606432" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.6998468606432"
+                    Point2="0,27.6998468606432"
+                    Point3="-4,27.6998468606432" />
+                  <mssgle:LineSegment
+                    End="-79.8333333333333,27.6998468606432" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-79.8333333333333,27.6998468606432"
+                    Point2="-83.8333333333333,27.6998468606432"
+                    Point3="-83.8333333333333,31.6998468606432" />
+                  <mssgle:LineSegment
+                    End="-83.8333333333333,60.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-90.1080533854167,32.6998468606432,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
           TopLeft="463.5,184">
@@ -1289,42 +1357,6 @@ where [refTable].[book_sk] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Lookup Match Output]"
-          TopLeft="466.333333333333,291">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-83.8333333333333,68"
-              Start="0,0"
-              End="-83.8333333333333,60.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,23.6998468606432" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,23.6998468606432"
-                    Point2="0,27.6998468606432"
-                    Point3="-4,27.6998468606432" />
-                  <mssgle:LineSegment
-                    End="-79.8333333333333,27.6998468606432" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-79.8333333333333,27.6998468606432"
-                    Point2="-83.8333333333333,27.6998468606432"
-                    Point3="-83.8333333333333,31.6998468606432" />
-                  <mssgle:LineSegment
-                    End="-83.8333333333333,60.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-90.1080533854167,32.6998468606432,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -1333,6 +1365,19 @@ where [refTable].[book_sk] = ?</property>
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -1355,7 +1400,7 @@ where [refTable].[book_sk] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -1365,23 +1410,10 @@ where [refTable].[book_sk] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

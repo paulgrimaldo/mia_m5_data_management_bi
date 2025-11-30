@@ -11,8 +11,8 @@
   DTS:LocaleID="16394"
   DTS:ObjectName="DimAddressMethod"
   DTS:PackageType="5"
-  DTS:VersionBuild="67"
-  DTS:VersionGUID="{D8E1CBD2-6A75-4B5A-BCE5-A826EC3E1BE4}">
+  DTS:VersionBuild="69"
+  DTS:VersionGUID="{21D1769D-64E5-4D7B-B6EC-6C6C3EE6769D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -96,13 +96,13 @@
                   description="Specifies the SQL statement that generates the lookup table."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[DimAdress]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[DimAddress]</property>
                 <property
                   dataType="System.String"
                   description="Specifies a SQL statement that uses parameters to generate the lookup table."
                   expressionType="Notify"
                   name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[DimAdress]) [refTable]
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[DimAddress]) [refTable]
 where [refTable].[address_sk] = ?</property>
                 <property
                   dataType="System.Int32"
@@ -139,7 +139,7 @@ where [refTable].[address_sk] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Data Flow Task\Get Adress.Outputs[OLE DB Source Output].Columns[address_id]};</property>
+                  name="ParameterMap">#{Package\Data Flow Task\Get Address.Outputs[OLE DB Source Output].Columns[address_id]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -166,7 +166,7 @@ where [refTable].[address_sk] = ?</property>
                       refId="Package\Data Flow Task\Busqueda.Inputs[Lookup Input].Columns[address_id]"
                       cachedDataType="i4"
                       cachedName="address_id"
-                      lineageId="Package\Data Flow Task\Get Adress.Outputs[OLE DB Source Output].Columns[address_id]">
+                      lineageId="Package\Data Flow Task\Get Address.Outputs[OLE DB Source Output].Columns[address_id]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -240,11 +240,11 @@ where [refTable].[address_sk] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\Get Adress"
+              refId="Package\Data Flow Task\Get Address"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
               description="OLE DB Source"
-              name="Get Adress"
+              name="Get Address"
               usesDispositions="true"
               version="7">
               <properties>
@@ -289,7 +289,7 @@ where [refTable].[address_sk] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\Get Adress.Connections[OleDbConnection]"
+                  refId="Package\Data Flow Task\Get Address.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[localhost.Bookstore]"
                   connectionManagerRefId="Package.ConnectionManagers[localhost.Bookstore]"
                   description="The OLE DB runtime connection used to access the database."
@@ -297,89 +297,89 @@ where [refTable].[address_sk] = ?</property>
               </connections>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Get Adress.Outputs[OLE DB Source Output]"
+                  refId="Package\Data Flow Task\Get Address.Outputs[OLE DB Source Output]"
                   name="OLE DB Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Adress.Outputs[OLE DB Source Output].Columns[address_id]"
+                      refId="Package\Data Flow Task\Get Address.Outputs[OLE DB Source Output].Columns[address_id]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Get Adress.Outputs[OLE DB Source Output].ExternalColumns[address_id]"
-                      lineageId="Package\Data Flow Task\Get Adress.Outputs[OLE DB Source Output].Columns[address_id]"
+                      externalMetadataColumnId="Package\Data Flow Task\Get Address.Outputs[OLE DB Source Output].ExternalColumns[address_id]"
+                      lineageId="Package\Data Flow Task\Get Address.Outputs[OLE DB Source Output].Columns[address_id]"
                       name="address_id"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Adress.Outputs[OLE DB Source Output].Columns[street_name]"
+                      refId="Package\Data Flow Task\Get Address.Outputs[OLE DB Source Output].Columns[street_name]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Get Adress.Outputs[OLE DB Source Output].ExternalColumns[street_name]"
+                      externalMetadataColumnId="Package\Data Flow Task\Get Address.Outputs[OLE DB Source Output].ExternalColumns[street_name]"
                       length="200"
-                      lineageId="Package\Data Flow Task\Get Adress.Outputs[OLE DB Source Output].Columns[street_name]"
+                      lineageId="Package\Data Flow Task\Get Address.Outputs[OLE DB Source Output].Columns[street_name]"
                       name="street_name"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Adress.Outputs[OLE DB Source Output].Columns[street_number]"
+                      refId="Package\Data Flow Task\Get Address.Outputs[OLE DB Source Output].Columns[street_number]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Get Adress.Outputs[OLE DB Source Output].ExternalColumns[street_number]"
+                      externalMetadataColumnId="Package\Data Flow Task\Get Address.Outputs[OLE DB Source Output].ExternalColumns[street_number]"
                       length="10"
-                      lineageId="Package\Data Flow Task\Get Adress.Outputs[OLE DB Source Output].Columns[street_number]"
+                      lineageId="Package\Data Flow Task\Get Address.Outputs[OLE DB Source Output].Columns[street_number]"
                       name="street_number"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Adress.Outputs[OLE DB Source Output].Columns[city]"
+                      refId="Package\Data Flow Task\Get Address.Outputs[OLE DB Source Output].Columns[city]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Get Adress.Outputs[OLE DB Source Output].ExternalColumns[city]"
+                      externalMetadataColumnId="Package\Data Flow Task\Get Address.Outputs[OLE DB Source Output].ExternalColumns[city]"
                       length="100"
-                      lineageId="Package\Data Flow Task\Get Adress.Outputs[OLE DB Source Output].Columns[city]"
+                      lineageId="Package\Data Flow Task\Get Address.Outputs[OLE DB Source Output].Columns[city]"
                       name="city"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Adress.Outputs[OLE DB Source Output].Columns[country_name]"
+                      refId="Package\Data Flow Task\Get Address.Outputs[OLE DB Source Output].Columns[country_name]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Get Adress.Outputs[OLE DB Source Output].ExternalColumns[country_name]"
+                      externalMetadataColumnId="Package\Data Flow Task\Get Address.Outputs[OLE DB Source Output].ExternalColumns[country_name]"
                       length="200"
-                      lineageId="Package\Data Flow Task\Get Adress.Outputs[OLE DB Source Output].Columns[country_name]"
+                      lineageId="Package\Data Flow Task\Get Address.Outputs[OLE DB Source Output].Columns[country_name]"
                       name="country_name"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Get Adress.Outputs[OLE DB Source Output].ExternalColumns[address_id]"
+                      refId="Package\Data Flow Task\Get Address.Outputs[OLE DB Source Output].ExternalColumns[address_id]"
                       dataType="i4"
                       name="address_id" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Get Adress.Outputs[OLE DB Source Output].ExternalColumns[street_name]"
+                      refId="Package\Data Flow Task\Get Address.Outputs[OLE DB Source Output].ExternalColumns[street_name]"
                       codePage="1252"
                       dataType="str"
                       length="200"
                       name="street_name" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Get Adress.Outputs[OLE DB Source Output].ExternalColumns[street_number]"
+                      refId="Package\Data Flow Task\Get Address.Outputs[OLE DB Source Output].ExternalColumns[street_number]"
                       codePage="1252"
                       dataType="str"
                       length="10"
                       name="street_number" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Get Adress.Outputs[OLE DB Source Output].ExternalColumns[city]"
+                      refId="Package\Data Flow Task\Get Address.Outputs[OLE DB Source Output].ExternalColumns[city]"
                       codePage="1252"
                       dataType="str"
                       length="100"
                       name="city" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Get Adress.Outputs[OLE DB Source Output].ExternalColumns[country_name]"
+                      refId="Package\Data Flow Task\Get Address.Outputs[OLE DB Source Output].ExternalColumns[country_name]"
                       codePage="1252"
                       dataType="str"
                       length="200"
@@ -387,53 +387,53 @@ where [refTable].[address_sk] = ?</property>
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Get Adress.Outputs[OLE DB Source Error Output]"
+                  refId="Package\Data Flow Task\Get Address.Outputs[OLE DB Source Error Output]"
                   isErrorOut="true"
                   name="OLE DB Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Adress.Outputs[OLE DB Source Error Output].Columns[address_id]"
+                      refId="Package\Data Flow Task\Get Address.Outputs[OLE DB Source Error Output].Columns[address_id]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Get Adress.Outputs[OLE DB Source Error Output].Columns[address_id]"
+                      lineageId="Package\Data Flow Task\Get Address.Outputs[OLE DB Source Error Output].Columns[address_id]"
                       name="address_id" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Adress.Outputs[OLE DB Source Error Output].Columns[street_name]"
+                      refId="Package\Data Flow Task\Get Address.Outputs[OLE DB Source Error Output].Columns[street_name]"
                       codePage="1252"
                       dataType="str"
                       length="200"
-                      lineageId="Package\Data Flow Task\Get Adress.Outputs[OLE DB Source Error Output].Columns[street_name]"
+                      lineageId="Package\Data Flow Task\Get Address.Outputs[OLE DB Source Error Output].Columns[street_name]"
                       name="street_name" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Adress.Outputs[OLE DB Source Error Output].Columns[street_number]"
+                      refId="Package\Data Flow Task\Get Address.Outputs[OLE DB Source Error Output].Columns[street_number]"
                       codePage="1252"
                       dataType="str"
                       length="10"
-                      lineageId="Package\Data Flow Task\Get Adress.Outputs[OLE DB Source Error Output].Columns[street_number]"
+                      lineageId="Package\Data Flow Task\Get Address.Outputs[OLE DB Source Error Output].Columns[street_number]"
                       name="street_number" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Adress.Outputs[OLE DB Source Error Output].Columns[city]"
+                      refId="Package\Data Flow Task\Get Address.Outputs[OLE DB Source Error Output].Columns[city]"
                       codePage="1252"
                       dataType="str"
                       length="100"
-                      lineageId="Package\Data Flow Task\Get Adress.Outputs[OLE DB Source Error Output].Columns[city]"
+                      lineageId="Package\Data Flow Task\Get Address.Outputs[OLE DB Source Error Output].Columns[city]"
                       name="city" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Adress.Outputs[OLE DB Source Error Output].Columns[country_name]"
+                      refId="Package\Data Flow Task\Get Address.Outputs[OLE DB Source Error Output].Columns[country_name]"
                       codePage="1252"
                       dataType="str"
                       length="200"
-                      lineageId="Package\Data Flow Task\Get Adress.Outputs[OLE DB Source Error Output].Columns[country_name]"
+                      lineageId="Package\Data Flow Task\Get Address.Outputs[OLE DB Source Error Output].Columns[country_name]"
                       name="country_name" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Adress.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      refId="Package\Data Flow Task\Get Address.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Get Adress.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Data Flow Task\Get Address.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Adress.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\Data Flow Task\Get Address.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Get Adress.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Data Flow Task\Get Address.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -442,11 +442,11 @@ where [refTable].[address_sk] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\Load  Adress"
+              refId="Package\Data Flow Task\Load  Address"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="Load  Adress"
+              name="Load  Address"
               usesDispositions="true"
               version="4">
               <properties>
@@ -457,7 +457,7 @@ where [refTable].[address_sk] = ?</property>
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[DimAdress]</property>
+                  name="OpenRowset">[dbo].[DimAddress]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -499,7 +499,7 @@ where [refTable].[address_sk] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\Load  Adress.Connections[OleDbConnection]"
+                  refId="Package\Data Flow Task\Load  Address.Connections[OleDbConnection]"
                   connectionManagerID="{75F9CD8B-5704-49A8-AA98-E418097E010E}:external"
                   connectionManagerRefId="Project.ConnectionManagers[localhost.BookstoreDW]"
                   description="The OLE DB runtime connection used to access the database."
@@ -507,83 +507,83 @@ where [refTable].[address_sk] = ?</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\Load  Adress.Inputs[OLE DB Destination Input]"
+                  refId="Package\Data Flow Task\Load  Address.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Load  Adress.Inputs[OLE DB Destination Input].Columns[street_name]"
+                      refId="Package\Data Flow Task\Load  Address.Inputs[OLE DB Destination Input].Columns[street_name]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="200"
                       cachedName="street_name"
-                      externalMetadataColumnId="Package\Data Flow Task\Load  Adress.Inputs[OLE DB Destination Input].ExternalColumns[street_name]"
-                      lineageId="Package\Data Flow Task\Get Adress.Outputs[OLE DB Source Output].Columns[street_name]" />
+                      externalMetadataColumnId="Package\Data Flow Task\Load  Address.Inputs[OLE DB Destination Input].ExternalColumns[street_name]"
+                      lineageId="Package\Data Flow Task\Get Address.Outputs[OLE DB Source Output].Columns[street_name]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Load  Adress.Inputs[OLE DB Destination Input].Columns[street_number]"
+                      refId="Package\Data Flow Task\Load  Address.Inputs[OLE DB Destination Input].Columns[street_number]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="10"
                       cachedName="street_number"
-                      externalMetadataColumnId="Package\Data Flow Task\Load  Adress.Inputs[OLE DB Destination Input].ExternalColumns[street_number]"
-                      lineageId="Package\Data Flow Task\Get Adress.Outputs[OLE DB Source Output].Columns[street_number]" />
+                      externalMetadataColumnId="Package\Data Flow Task\Load  Address.Inputs[OLE DB Destination Input].ExternalColumns[street_number]"
+                      lineageId="Package\Data Flow Task\Get Address.Outputs[OLE DB Source Output].Columns[street_number]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Load  Adress.Inputs[OLE DB Destination Input].Columns[city]"
+                      refId="Package\Data Flow Task\Load  Address.Inputs[OLE DB Destination Input].Columns[city]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="100"
                       cachedName="city"
-                      externalMetadataColumnId="Package\Data Flow Task\Load  Adress.Inputs[OLE DB Destination Input].ExternalColumns[city]"
-                      lineageId="Package\Data Flow Task\Get Adress.Outputs[OLE DB Source Output].Columns[city]" />
+                      externalMetadataColumnId="Package\Data Flow Task\Load  Address.Inputs[OLE DB Destination Input].ExternalColumns[city]"
+                      lineageId="Package\Data Flow Task\Get Address.Outputs[OLE DB Source Output].Columns[city]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Load  Adress.Inputs[OLE DB Destination Input].Columns[country_name]"
+                      refId="Package\Data Flow Task\Load  Address.Inputs[OLE DB Destination Input].Columns[country_name]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="200"
                       cachedName="country_name"
-                      externalMetadataColumnId="Package\Data Flow Task\Load  Adress.Inputs[OLE DB Destination Input].ExternalColumns[country_name]"
-                      lineageId="Package\Data Flow Task\Get Adress.Outputs[OLE DB Source Output].Columns[country_name]" />
+                      externalMetadataColumnId="Package\Data Flow Task\Load  Address.Inputs[OLE DB Destination Input].ExternalColumns[country_name]"
+                      lineageId="Package\Data Flow Task\Get Address.Outputs[OLE DB Source Output].Columns[country_name]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Load  Adress.Inputs[OLE DB Destination Input].Columns[address_id]"
+                      refId="Package\Data Flow Task\Load  Address.Inputs[OLE DB Destination Input].Columns[address_id]"
                       cachedDataType="i4"
                       cachedName="address_id"
-                      externalMetadataColumnId="Package\Data Flow Task\Load  Adress.Inputs[OLE DB Destination Input].ExternalColumns[address_id]"
-                      lineageId="Package\Data Flow Task\Get Adress.Outputs[OLE DB Source Output].Columns[address_id]" />
+                      externalMetadataColumnId="Package\Data Flow Task\Load  Address.Inputs[OLE DB Destination Input].ExternalColumns[address_id]"
+                      lineageId="Package\Data Flow Task\Get Address.Outputs[OLE DB Source Output].Columns[address_id]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Load  Adress.Inputs[OLE DB Destination Input].ExternalColumns[city]"
+                      refId="Package\Data Flow Task\Load  Address.Inputs[OLE DB Destination Input].ExternalColumns[city]"
                       codePage="1252"
                       dataType="str"
                       length="100"
                       name="city" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Load  Adress.Inputs[OLE DB Destination Input].ExternalColumns[country_name]"
+                      refId="Package\Data Flow Task\Load  Address.Inputs[OLE DB Destination Input].ExternalColumns[country_name]"
                       codePage="1252"
                       dataType="str"
                       length="200"
                       name="country_name" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Load  Adress.Inputs[OLE DB Destination Input].ExternalColumns[street_number]"
+                      refId="Package\Data Flow Task\Load  Address.Inputs[OLE DB Destination Input].ExternalColumns[street_number]"
                       codePage="1252"
                       dataType="str"
                       length="10"
                       name="street_number" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Load  Adress.Inputs[OLE DB Destination Input].ExternalColumns[street_name]"
+                      refId="Package\Data Flow Task\Load  Address.Inputs[OLE DB Destination Input].ExternalColumns[street_name]"
                       codePage="1252"
                       dataType="str"
                       length="200"
                       name="street_name" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Load  Adress.Inputs[OLE DB Destination Input].ExternalColumns[address_sk]"
+                      refId="Package\Data Flow Task\Load  Address.Inputs[OLE DB Destination Input].ExternalColumns[address_sk]"
                       dataType="i4"
                       name="address_sk" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Load  Adress.Inputs[OLE DB Destination Input].ExternalColumns[address_id]"
+                      refId="Package\Data Flow Task\Load  Address.Inputs[OLE DB Destination Input].ExternalColumns[address_id]"
                       dataType="i4"
                       name="address_id" />
                   </externalMetadataColumns>
@@ -591,22 +591,22 @@ where [refTable].[address_sk] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Load  Adress.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\Data Flow Task\Load  Address.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Data Flow Task\Load  Adress.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\Data Flow Task\Load  Address.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Load  Adress.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\Data Flow Task\Load  Address.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Load  Adress.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Data Flow Task\Load  Address.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Load  Adress.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\Data Flow Task\Load  Address.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Load  Adress.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Data Flow Task\Load  Address.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -615,11 +615,11 @@ where [refTable].[address_sk] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\Updated Existing Adress Method"
+              refId="Package\Data Flow Task\Updated Existing Address Method"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="Updated Existing Adress Method"
+              name="Updated Existing Address Method"
               usesDispositions="true"
               version="4">
               <properties>
@@ -672,7 +672,7 @@ where [refTable].[address_sk] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\Updated Existing Adress Method.Connections[OleDbConnection]"
+                  refId="Package\Data Flow Task\Updated Existing Address Method.Connections[OleDbConnection]"
                   connectionManagerID="{75F9CD8B-5704-49A8-AA98-E418097E010E}:external"
                   connectionManagerRefId="Project.ConnectionManagers[localhost.BookstoreDW]"
                   description="The OLE DB runtime connection used to access the database."
@@ -680,84 +680,84 @@ where [refTable].[address_sk] = ?</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\Updated Existing Adress Method.Inputs[OLE DB Destination Input]"
+                  refId="Package\Data Flow Task\Updated Existing Address Method.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Updated Existing Adress Method.Inputs[OLE DB Destination Input].Columns[street_name]"
+                      refId="Package\Data Flow Task\Updated Existing Address Method.Inputs[OLE DB Destination Input].Columns[street_name]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="200"
                       cachedName="street_name"
-                      externalMetadataColumnId="Package\Data Flow Task\Updated Existing Adress Method.Inputs[OLE DB Destination Input].ExternalColumns[street_name]"
-                      lineageId="Package\Data Flow Task\Get Adress.Outputs[OLE DB Source Output].Columns[street_name]" />
+                      externalMetadataColumnId="Package\Data Flow Task\Updated Existing Address Method.Inputs[OLE DB Destination Input].ExternalColumns[street_name]"
+                      lineageId="Package\Data Flow Task\Get Address.Outputs[OLE DB Source Output].Columns[street_name]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Updated Existing Adress Method.Inputs[OLE DB Destination Input].Columns[street_number]"
+                      refId="Package\Data Flow Task\Updated Existing Address Method.Inputs[OLE DB Destination Input].Columns[street_number]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="10"
                       cachedName="street_number"
-                      externalMetadataColumnId="Package\Data Flow Task\Updated Existing Adress Method.Inputs[OLE DB Destination Input].ExternalColumns[street_number]"
-                      lineageId="Package\Data Flow Task\Get Adress.Outputs[OLE DB Source Output].Columns[street_number]" />
+                      externalMetadataColumnId="Package\Data Flow Task\Updated Existing Address Method.Inputs[OLE DB Destination Input].ExternalColumns[street_number]"
+                      lineageId="Package\Data Flow Task\Get Address.Outputs[OLE DB Source Output].Columns[street_number]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Updated Existing Adress Method.Inputs[OLE DB Destination Input].Columns[city]"
+                      refId="Package\Data Flow Task\Updated Existing Address Method.Inputs[OLE DB Destination Input].Columns[city]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="100"
                       cachedName="city"
-                      externalMetadataColumnId="Package\Data Flow Task\Updated Existing Adress Method.Inputs[OLE DB Destination Input].ExternalColumns[city]"
-                      lineageId="Package\Data Flow Task\Get Adress.Outputs[OLE DB Source Output].Columns[city]" />
+                      externalMetadataColumnId="Package\Data Flow Task\Updated Existing Address Method.Inputs[OLE DB Destination Input].ExternalColumns[city]"
+                      lineageId="Package\Data Flow Task\Get Address.Outputs[OLE DB Source Output].Columns[city]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Updated Existing Adress Method.Inputs[OLE DB Destination Input].Columns[country_name]"
+                      refId="Package\Data Flow Task\Updated Existing Address Method.Inputs[OLE DB Destination Input].Columns[country_name]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="200"
                       cachedName="country_name"
-                      externalMetadataColumnId="Package\Data Flow Task\Updated Existing Adress Method.Inputs[OLE DB Destination Input].ExternalColumns[country_name]"
-                      lineageId="Package\Data Flow Task\Get Adress.Outputs[OLE DB Source Output].Columns[country_name]" />
+                      externalMetadataColumnId="Package\Data Flow Task\Updated Existing Address Method.Inputs[OLE DB Destination Input].ExternalColumns[country_name]"
+                      lineageId="Package\Data Flow Task\Get Address.Outputs[OLE DB Source Output].Columns[country_name]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Updated Existing Adress Method.Inputs[OLE DB Destination Input].Columns[address_sk]"
+                      refId="Package\Data Flow Task\Updated Existing Address Method.Inputs[OLE DB Destination Input].Columns[address_sk]"
                       cachedDataType="i4"
                       cachedName="address_sk"
-                      externalMetadataColumnId="Package\Data Flow Task\Updated Existing Adress Method.Inputs[OLE DB Destination Input].ExternalColumns[AddressSK]"
+                      externalMetadataColumnId="Package\Data Flow Task\Updated Existing Address Method.Inputs[OLE DB Destination Input].ExternalColumns[AddressSK]"
                       lineageId="Package\Data Flow Task\Busqueda.Outputs[Lookup Match Output].Columns[address_sk]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Updated Existing Adress Method.Inputs[OLE DB Destination Input].ExternalColumns[load_datetime]"
+                      refId="Package\Data Flow Task\Updated Existing Address Method.Inputs[OLE DB Destination Input].ExternalColumns[load_datetime]"
                       dataType="dbTimeStamp2"
                       name="load_datetime"
                       scale="7" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Updated Existing Adress Method.Inputs[OLE DB Destination Input].ExternalColumns[city]"
+                      refId="Package\Data Flow Task\Updated Existing Address Method.Inputs[OLE DB Destination Input].ExternalColumns[city]"
                       codePage="1252"
                       dataType="str"
                       length="100"
                       name="city" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Updated Existing Adress Method.Inputs[OLE DB Destination Input].ExternalColumns[country_name]"
+                      refId="Package\Data Flow Task\Updated Existing Address Method.Inputs[OLE DB Destination Input].ExternalColumns[country_name]"
                       codePage="1252"
                       dataType="str"
                       length="200"
                       name="country_name" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Updated Existing Adress Method.Inputs[OLE DB Destination Input].ExternalColumns[street_number]"
+                      refId="Package\Data Flow Task\Updated Existing Address Method.Inputs[OLE DB Destination Input].ExternalColumns[street_number]"
                       codePage="1252"
                       dataType="str"
                       length="10"
                       name="street_number" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Updated Existing Adress Method.Inputs[OLE DB Destination Input].ExternalColumns[street_name]"
+                      refId="Package\Data Flow Task\Updated Existing Address Method.Inputs[OLE DB Destination Input].ExternalColumns[street_name]"
                       codePage="1252"
                       dataType="str"
                       length="200"
                       name="street_name" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Updated Existing Adress Method.Inputs[OLE DB Destination Input].ExternalColumns[AddressSK]"
+                      refId="Package\Data Flow Task\Updated Existing Address Method.Inputs[OLE DB Destination Input].ExternalColumns[AddressSK]"
                       dataType="i4"
                       name="AddressSK" />
                   </externalMetadataColumns>
@@ -765,22 +765,22 @@ where [refTable].[address_sk] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Updated Existing Adress Method.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\Data Flow Task\Updated Existing Address Method.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Data Flow Task\Updated Existing Adress Method.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\Data Flow Task\Updated Existing Address Method.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Updated Existing Adress Method.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\Data Flow Task\Updated Existing Address Method.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Updated Existing Adress Method.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Data Flow Task\Updated Existing Address Method.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Updated Existing Adress Method.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\Data Flow Task\Updated Existing Address Method.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Updated Existing Adress Method.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Data Flow Task\Updated Existing Address Method.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -792,19 +792,19 @@ where [refTable].[address_sk] = ?</property>
           <paths>
             <path
               refId="Package\Data Flow Task.Paths[Lookup Match Output]"
-              endId="Package\Data Flow Task\Updated Existing Adress Method.Inputs[OLE DB Destination Input]"
+              endId="Package\Data Flow Task\Updated Existing Address Method.Inputs[OLE DB Destination Input]"
               name="Lookup Match Output"
               startId="Package\Data Flow Task\Busqueda.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Data Flow Task.Paths[Lookup No Match Output]"
-              endId="Package\Data Flow Task\Load  Adress.Inputs[OLE DB Destination Input]"
+              endId="Package\Data Flow Task\Load  Address.Inputs[OLE DB Destination Input]"
               name="Lookup No Match Output"
               startId="Package\Data Flow Task\Busqueda.Outputs[Lookup No Match Output]" />
             <path
               refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
               endId="Package\Data Flow Task\Busqueda.Inputs[Lookup Input]"
               name="OLE DB Source Output"
-              startId="Package\Data Flow Task\Get Adress.Outputs[OLE DB Source Output]" />
+              startId="Package\Data Flow Task\Get Address.Outputs[OLE DB Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -864,7 +864,7 @@ where [refTable].[address_sk] = ?</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{75F9CD8B-5704-49A8-AA98-E418097E010E}"
-          SQLTask:SqlStatementSource="EXECUTE [dbo].[DW_MergeDimAdress] " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="EXECUTE [dbo].[DW_MergeDimAddress] " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
@@ -1088,66 +1088,30 @@ where [refTable].[address_sk] = ?</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="134,42"
-          Id="Package\Data Flow Task\Get Adress"
+          Size="140,42"
+          Id="Package\Data Flow Task\Get Address"
           TopLeft="400,142" />
-        <NodeLayout
-          Size="239,42"
-          Id="Package\Data Flow Task\Updated Existing Adress Method"
-          TopLeft="294,359" />
         <NodeLayout
           Size="129,42"
           Id="Package\Data Flow Task\Busqueda"
           TopLeft="422,249" />
         <NodeLayout
-          Size="144,42"
-          Id="Package\Data Flow Task\Load  Adress"
-          TopLeft="656,359" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Lookup Match Output]"
-          TopLeft="466.333333333333,291">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-52.8333333333333,68"
-              Start="0,0"
-              End="-52.8333333333333,60.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,23.6998468606432" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,23.6998468606432"
-                    Point2="0,27.6998468606432"
-                    Point3="-4,27.6998468606432" />
-                  <mssgle:LineSegment
-                    End="-48.8333333333333,27.6998468606432" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-48.8333333333333,27.6998468606432"
-                    Point2="-52.8333333333333,27.6998468606432"
-                    Point3="-52.8333333333333,31.6998468606432" />
-                  <mssgle:LineSegment
-                    End="-52.8333333333333,60.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-74.6080533854167,32.6998468606432,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="150,42"
+          Id="Package\Data Flow Task\Load  Address"
+          TopLeft="661,359" />
+        <NodeLayout
+          Size="245,42"
+          Id="Package\Data Flow Task\Updated Existing Address Method"
+          TopLeft="294,359" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
-          TopLeft="467,184">
+          TopLeft="470,184">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="19.5,65"
+              EndConnector="16.5,65"
               Start="0,0"
-              End="19.5,57.5">
+              End="16.5,57.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -1158,13 +1122,13 @@ where [refTable].[address_sk] = ?</property>
                     Point2="0,32.5"
                     Point3="4,32.5" />
                   <mssgle:LineSegment
-                    End="15.5,32.5" />
+                    End="12.5,32.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="15.5,32.5"
-                    Point2="19.5,32.5"
-                    Point3="19.5,36.5" />
+                    Point1="12.5,32.5"
+                    Point2="16.5,32.5"
+                    Point3="16.5,36.5" />
                   <mssgle:LineSegment
-                    End="19.5,57.5" />
+                    End="16.5,57.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1179,9 +1143,9 @@ where [refTable].[address_sk] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="221.333333333333,68"
+              EndConnector="229.333333333333,68"
               Start="0,0"
-              End="221.333333333333,60.5">
+              End="229.333333333333,60.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -1192,20 +1156,56 @@ where [refTable].[address_sk] = ?</property>
                     Point2="0,27.6998468606432"
                     Point3="4,27.6998468606432" />
                   <mssgle:LineSegment
-                    End="217.333333333333,27.6998468606432" />
+                    End="225.333333333333,27.6998468606432" />
                   <mssgle:CubicBezierSegment
-                    Point1="217.333333333333,27.6998468606432"
-                    Point2="221.333333333333,27.6998468606432"
-                    Point3="221.333333333333,31.6998468606432" />
+                    Point1="225.333333333333,27.6998468606432"
+                    Point2="229.333333333333,27.6998468606432"
+                    Point3="229.333333333333,31.6998468606432" />
                   <mssgle:LineSegment
-                    End="221.333333333333,60.5" />
+                    End="229.333333333333,60.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="54.8602799479167,32.6998468606432,111.6127734375,11.609375"
+              BoundingBox="58.8602799479167,32.6998468606432,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Lookup Match Output]"
+          TopLeft="466.333333333333,291">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-49.8333333333333,68"
+              Start="0,0"
+              End="-49.8333333333333,60.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.6998468606432" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.6998468606432"
+                    Point2="0,27.6998468606432"
+                    Point3="-4,27.6998468606432" />
+                  <mssgle:LineSegment
+                    End="-45.8333333333333,27.6998468606432" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-45.8333333333333,27.6998468606432"
+                    Point2="-49.8333333333333,27.6998468606432"
+                    Point3="-49.8333333333333,31.6998468606432" />
+                  <mssgle:LineSegment
+                    End="-49.8333333333333,60.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-73.1080533854167,32.6998468606432,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1213,23 +1213,10 @@ where [refTable].[address_sk] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Get Adress">
+    design-time-name="Package\Data Flow Task\Get Address">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Updated Existing Adress Method">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -1244,7 +1231,7 @@ where [refTable].[address_sk] = ?</property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dbo].[DimAdress]</Value>
+          type="q3:string">[dbo].[DimAddress]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
@@ -1257,7 +1244,20 @@ where [refTable].[address_sk] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Load  Adress">
+    design-time-name="Package\Data Flow Task\Load  Address">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Updated Existing Address Method">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
