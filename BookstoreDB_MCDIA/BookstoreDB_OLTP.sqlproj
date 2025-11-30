@@ -106,6 +106,6 @@
     <None Include="Script\custOrders.data.sql" />
     <None Include="Script\orderHistory.data.sql" />
     <None Include="Script\orderLine.data.sql" />
-    <None Include="dbo\Stored Procedures\GetOrderStatusChangesByRowVersion.sql" />
+    <Build Include="dbo\Stored Procedures\GetOrderStatusChangesByRowVersion.sql" />
   </ItemGroup>
 </Project>

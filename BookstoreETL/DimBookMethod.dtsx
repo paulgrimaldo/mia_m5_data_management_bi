@@ -5,34 +5,34 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="DESKTOP-4530NA8"
   DTS:CreatorName="DESKTOP-4530NA8\Laca"
-  DTS:DTSID="{93994881-3930-4BE8-8A9E-9EA8ABA6087E}"
+  DTS:DTSID="{5F384077-8BE2-4276-AB2D-0DA5D2AF59C9}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="17.0.1008.3"
   DTS:LocaleID="16394"
-  DTS:ObjectName="DimCustomerMethod"
+  DTS:ObjectName="DimBookMethod"
   DTS:PackageType="5"
-  DTS:VersionBuild="46"
-  DTS:VersionGUID="{45D35401-7620-4D91-8BAD-69509CE5909A}">
+  DTS:VersionBuild="48"
+  DTS:VersionGUID="{AFA36A31-2569-4888-A6FF-7C056F57FDBD}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[localhost.Bookstore]"
       DTS:CreationName="OLEDB"
-      DTS:DTSID="{87FD94FB-E46B-4C14-81F9-759040EAE4A1}"
+      DTS:DTSID="{BB2E47E3-2E35-496F-9AD2-3F08DAC88F86}"
       DTS:ObjectName="localhost.Bookstore">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=localhost;Initial Catalog=Bookstore;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-DimOrderStatusMethod-{87FD94FB-E46B-4C14-81F9-759040EAE4A1}localhost.Bookstore;Auto Translate=False;" />
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=Bookstore;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-DimOrderStatusMethod-{BB2E47E3-2E35-496F-9AD2-3F08DAC88F86}localhost.Bookstore;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Variables>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{CB74120A-86F4-47DE-8134-90ADB2C66C07}"
+      DTS:DTSID="{53F32A04-AE3A-4C35-B595-86C9A33BFEE8}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="dbts">
@@ -42,7 +42,7 @@
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
-      DTS:DTSID="{1CB7D05A-713F-49AF-9157-183687A8D60A}"
+      DTS:DTSID="{78F0A8E5-08C0-4547-94D3-6448EC3BC40C}"
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="lastRowVersion">
@@ -56,7 +56,7 @@
       DTS:refId="Package\clean-up staging"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tarea Ejecutar SQL"
-      DTS:DTSID="{9E6298B5-F57A-4B95-AC86-623860E7D86E}"
+      DTS:DTSID="{85EFA07D-2F9F-4686-B639-0F2B91F41A16}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="clean-up staging"
@@ -65,14 +65,14 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{75F9CD8B-5704-49A8-AA98-E418097E010E}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE staging.customer;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="TRUNCATE TABLE staging.book;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Data Flow Task"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:DTSID="{6224A900-EDD7-4E75-BB6F-2043C89BA187}"
+      DTS:DTSID="{5EB5CC2E-98F5-498D-8009-B51F46E3AC44}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
       DTS:ObjectName="Data Flow Task"
@@ -96,14 +96,14 @@
                   description="Specifies the SQL statement that generates the lookup table."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [staging].[customer]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[DimBook]</property>
                 <property
                   dataType="System.String"
                   description="Specifies a SQL statement that uses parameters to generate the lookup table."
                   expressionType="Notify"
                   name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [staging].[customer]) [refTable]
-where [refTable].[CustomerSK] = ?</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[DimBook]) [refTable]
+where [refTable].[book_sk] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the type of connection used to access the reference dataset."
@@ -134,12 +134,12 @@ where [refTable].[CustomerSK] = ?</property>
                 <property
                   dataType="System.String"
                   description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="CustomerSK" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="first_name" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="last_name" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="email" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="address_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="address" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="city" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="zip_code" dataType="DT_WSTR" length="20" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="country_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="country_name" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="load_datetime" dataType="DT_DBTIMESTAMP2" length="0" precision="0" scale="7" codePage="0"/&gt;&lt;referenceColumn name="batch_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="book_sk" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="book_id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="title" dataType="DT_STR" length="400" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="isbn13" dataType="DT_STR" length="13" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="num_pages" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="publication_date" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="publisher_name" dataType="DT_STR" length="400" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="language_code" dataType="DT_STR" length="8" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="language_name" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="author_name" dataType="DT_STR" length="400" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[customer_id]};</property>
+                  name="ParameterMap">#{Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[book_id]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -163,15 +163,15 @@ where [refTable].[CustomerSK] = ?</property>
                   name="Lookup Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Busqueda.Inputs[Lookup Input].Columns[customer_id]"
+                      refId="Package\Data Flow Task\Busqueda.Inputs[Lookup Input].Columns[book_id]"
                       cachedDataType="i4"
-                      cachedName="customer_id"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[customer_id]">
+                      cachedName="book_id"
+                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[book_id]">
                       <properties>
                         <property
                           dataType="System.String"
                           description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">CustomerSK</property>
+                          name="JoinToReferenceColumn">book_sk</property>
                         <property
                           dataType="System.Null"
                           description="Specifies the column in the reference table from which a column is copied."
@@ -191,17 +191,17 @@ where [refTable].[CustomerSK] = ?</property>
                   synchronousInputId="Package\Data Flow Task\Busqueda.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Busqueda.Outputs[Lookup Match Output].Columns[CustomerSK]"
+                      refId="Package\Data Flow Task\Busqueda.Outputs[Lookup Match Output].Columns[book_sk]"
                       dataType="i4"
                       errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Data Flow Task\Busqueda.Outputs[Lookup Match Output].Columns[CustomerSK]"
-                      name="CustomerSK"
+                      lineageId="Package\Data Flow Task\Busqueda.Outputs[Lookup Match Output].Columns[book_sk]"
+                      name="book_sk"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
                           dataType="System.String"
                           description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">CustomerSK</property>
+                          name="CopyFromReferenceColumn">book_sk</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -264,7 +264,7 @@ where [refTable].[CustomerSK] = ?</property>
                   dataType="System.String"
                   description="The SQL command to be executed."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">EXECUTE [dbo].[GetCustomerChangesByRowVersion] @startRow = ?	 ,@endRow = ?</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">EXECUTE [dbo].[GetBookChangesByRowVersion] @startRow = ?	 ,@endRow = ?</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -285,7 +285,7 @@ where [refTable].[CustomerSK] = ?</property>
                 <property
                   dataType="System.String"
                   description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping">"@startRow:Input",{1CB7D05A-713F-49AF-9157-183687A8D60A};"@endRow:Input",{CB74120A-86F4-47DE-8134-90ADB2C66C07};</property>
+                  name="ParameterMapping">"@startRow:Input",{78F0A8E5-08C0-4547-94D3-6448EC3BC40C};"@endRow:Input",{53F32A04-AE3A-4C35-B595-86C9A33BFEE8};</property>
               </properties>
               <connections>
                 <connection
@@ -301,157 +301,149 @@ where [refTable].[CustomerSK] = ?</property>
                   name="OLE DB Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[customer_id]"
+                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[book_id]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[customer_id]"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[customer_id]"
-                      name="customer_id"
+                      externalMetadataColumnId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[book_id]"
+                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[book_id]"
+                      name="book_id"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[first_name]"
+                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[title]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[first_name]"
-                      length="200"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[first_name]"
-                      name="first_name"
+                      externalMetadataColumnId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[title]"
+                      length="400"
+                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[title]"
+                      name="title"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[last_name]"
+                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[isbn13]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[last_name]"
-                      length="200"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[last_name]"
-                      name="last_name"
+                      externalMetadataColumnId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[isbn13]"
+                      length="13"
+                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[isbn13]"
+                      name="isbn13"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[email]"
+                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[language_code]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[email]"
-                      length="350"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[email]"
-                      name="email"
+                      externalMetadataColumnId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[language_code]"
+                      length="8"
+                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[language_code]"
+                      name="language_code"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[street_name]"
+                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[language_name]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[street_name]"
-                      length="200"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[street_name]"
-                      name="street_name"
+                      externalMetadataColumnId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[language_name]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[language_name]"
+                      name="language_name"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[street_number]"
+                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[num_pages]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[num_pages]"
+                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[num_pages]"
+                      name="num_pages"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[publication_date]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[publication_date]"
+                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[publication_date]"
+                      name="publication_date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[publisher_name]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[street_number]"
-                      length="10"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[street_number]"
-                      name="street_number"
+                      externalMetadataColumnId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[publisher_name]"
+                      length="400"
+                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[publisher_name]"
+                      name="publisher_name"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[city]"
+                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[author_name]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[city]"
-                      length="100"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[city]"
-                      name="city"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[address_status]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[address_status]"
-                      length="30"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[address_status]"
-                      name="address_status"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[country_name]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[country_name]"
-                      length="200"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[country_name]"
-                      name="country_name"
+                      externalMetadataColumnId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[author_name]"
+                      length="400"
+                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[author_name]"
+                      name="author_name"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[customer_id]"
+                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[book_id]"
                       dataType="i4"
-                      name="customer_id" />
+                      name="book_id" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[first_name]"
+                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[title]"
                       codePage="1252"
                       dataType="str"
-                      length="200"
-                      name="first_name" />
+                      length="400"
+                      name="title" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[last_name]"
+                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[isbn13]"
                       codePage="1252"
                       dataType="str"
-                      length="200"
-                      name="last_name" />
+                      length="13"
+                      name="isbn13" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[email]"
+                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[language_code]"
                       codePage="1252"
                       dataType="str"
-                      length="350"
-                      name="email" />
+                      length="8"
+                      name="language_code" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[street_name]"
+                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[language_name]"
                       codePage="1252"
                       dataType="str"
-                      length="200"
-                      name="street_name" />
+                      length="50"
+                      name="language_name" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[street_number]"
+                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[num_pages]"
+                      dataType="i4"
+                      name="num_pages" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[publication_date]"
+                      dataType="dbDate"
+                      name="publication_date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[publisher_name]"
                       codePage="1252"
                       dataType="str"
-                      length="10"
-                      name="street_number" />
+                      length="400"
+                      name="publisher_name" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[city]"
+                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[author_name]"
                       codePage="1252"
                       dataType="str"
-                      length="100"
-                      name="city" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[address_status]"
-                      codePage="1252"
-                      dataType="str"
-                      length="30"
-                      name="address_status" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].ExternalColumns[country_name]"
-                      codePage="1252"
-                      dataType="str"
-                      length="200"
-                      name="country_name" />
+                      length="400"
+                      name="author_name" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -460,66 +452,62 @@ where [refTable].[CustomerSK] = ?</property>
                   name="OLE DB Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[customer_id]"
+                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[book_id]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[customer_id]"
-                      name="customer_id" />
+                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[book_id]"
+                      name="book_id" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[first_name]"
+                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[title]"
                       codePage="1252"
                       dataType="str"
-                      length="200"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[first_name]"
-                      name="first_name" />
+                      length="400"
+                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[title]"
+                      name="title" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[last_name]"
+                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[isbn13]"
                       codePage="1252"
                       dataType="str"
-                      length="200"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[last_name]"
-                      name="last_name" />
+                      length="13"
+                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[isbn13]"
+                      name="isbn13" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[email]"
+                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[language_code]"
                       codePage="1252"
                       dataType="str"
-                      length="350"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[email]"
-                      name="email" />
+                      length="8"
+                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[language_code]"
+                      name="language_code" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[street_name]"
+                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[language_name]"
                       codePage="1252"
                       dataType="str"
-                      length="200"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[street_name]"
-                      name="street_name" />
+                      length="50"
+                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[language_name]"
+                      name="language_name" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[street_number]"
+                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[num_pages]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[num_pages]"
+                      name="num_pages" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[publication_date]"
+                      dataType="dbDate"
+                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[publication_date]"
+                      name="publication_date" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[publisher_name]"
                       codePage="1252"
                       dataType="str"
-                      length="10"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[street_number]"
-                      name="street_number" />
+                      length="400"
+                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[publisher_name]"
+                      name="publisher_name" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[city]"
+                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[author_name]"
                       codePage="1252"
                       dataType="str"
-                      length="100"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[city]"
-                      name="city" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[address_status]"
-                      codePage="1252"
-                      dataType="str"
-                      length="30"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[address_status]"
-                      name="address_status" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[country_name]"
-                      codePage="1252"
-                      dataType="str"
-                      length="200"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[country_name]"
-                      name="country_name" />
+                      length="400"
+                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[author_name]"
+                      name="author_name" />
                     <outputColumn
                       refId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
@@ -553,7 +541,7 @@ where [refTable].[CustomerSK] = ?</property>
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[DimCustomer]</property>
+                  name="OpenRowset">[dbo].[DimBook]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -610,134 +598,126 @@ where [refTable].[CustomerSK] = ?</property>
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].Columns[first_name]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="200"
-                      cachedName="first_name"
-                      externalMetadataColumnId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[first_name]"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[first_name]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].Columns[last_name]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="200"
-                      cachedName="last_name"
-                      externalMetadataColumnId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[last_name]"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[last_name]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].Columns[email]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="350"
-                      cachedName="email"
-                      externalMetadataColumnId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[email]"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[email]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].Columns[city]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="100"
-                      cachedName="city"
-                      externalMetadataColumnId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[city]"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[city]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].Columns[country_name]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="200"
-                      cachedName="country_name"
-                      externalMetadataColumnId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[country_name]"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[country_name]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].Columns[street_number]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="10"
-                      cachedName="street_number"
-                      externalMetadataColumnId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[street_number]"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[street_number]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].Columns[street_name]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="200"
-                      cachedName="street_name"
-                      externalMetadataColumnId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[street_name]"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[street_name]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].Columns[address_status]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="30"
-                      cachedName="address_status"
-                      externalMetadataColumnId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[address_status]"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[address_status]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].Columns[customer_id]"
+                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].Columns[book_id]"
                       cachedDataType="i4"
-                      cachedName="customer_id"
-                      externalMetadataColumnId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[customer_id]"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[customer_id]" />
+                      cachedName="book_id"
+                      externalMetadataColumnId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[book_id]"
+                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[book_id]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].Columns[title]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="400"
+                      cachedName="title"
+                      externalMetadataColumnId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[title]"
+                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[title]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].Columns[isbn13]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="13"
+                      cachedName="isbn13"
+                      externalMetadataColumnId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[isbn13]"
+                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[isbn13]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].Columns[language_code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8"
+                      cachedName="language_code"
+                      externalMetadataColumnId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[language_code]"
+                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[language_code]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].Columns[language_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="language_name"
+                      externalMetadataColumnId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[language_name]"
+                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[language_name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].Columns[num_pages]"
+                      cachedDataType="i4"
+                      cachedName="num_pages"
+                      externalMetadataColumnId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[num_pages]"
+                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[num_pages]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].Columns[publication_date]"
+                      cachedDataType="dbDate"
+                      cachedName="publication_date"
+                      externalMetadataColumnId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[publication_date]"
+                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[publication_date]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].Columns[publisher_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="400"
+                      cachedName="publisher_name"
+                      externalMetadataColumnId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[publisher_name]"
+                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[publisher_name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].Columns[author_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="400"
+                      cachedName="author_name"
+                      externalMetadataColumnId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[author_name]"
+                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[author_name]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[first_name]"
-                      codePage="1252"
-                      dataType="str"
-                      length="200"
-                      name="first_name" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[last_name]"
-                      codePage="1252"
-                      dataType="str"
-                      length="200"
-                      name="last_name" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[email]"
-                      codePage="1252"
-                      dataType="str"
-                      length="350"
-                      name="email" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[city]"
-                      codePage="1252"
-                      dataType="str"
-                      length="100"
-                      name="city" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[country_name]"
-                      codePage="1252"
-                      dataType="str"
-                      length="200"
-                      name="country_name" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[street_number]"
-                      codePage="1252"
-                      dataType="str"
-                      length="10"
-                      name="street_number" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[street_name]"
-                      codePage="1252"
-                      dataType="str"
-                      length="200"
-                      name="street_name" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[address_status]"
-                      codePage="1252"
-                      dataType="str"
-                      length="30"
-                      name="address_status" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[customer_sk]"
+                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[book_sk]"
                       dataType="i4"
-                      name="customer_sk" />
+                      name="book_sk" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[customer_id]"
+                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[book_id]"
                       dataType="i4"
-                      name="customer_id" />
+                      name="book_id" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[title]"
+                      codePage="1252"
+                      dataType="str"
+                      length="400"
+                      name="title" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[isbn13]"
+                      codePage="1252"
+                      dataType="str"
+                      length="13"
+                      name="isbn13" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[num_pages]"
+                      dataType="i4"
+                      name="num_pages" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[publication_date]"
+                      dataType="dbDate"
+                      name="publication_date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[publisher_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="400"
+                      name="publisher_name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[language_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="language_code" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[language_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="language_name" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Load Order Status.Inputs[OLE DB Destination Input].ExternalColumns[author_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="400"
+                      name="author_name" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -782,7 +762,7 @@ where [refTable].[CustomerSK] = ?</property>
                 <property
                   dataType="System.String"
                   description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[staging].[customer]</property>
+                  name="OpenRowset">[dbo].[DimBook]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the variable that contains the name of the database object used to open a rowset."
@@ -839,139 +819,132 @@ where [refTable].[CustomerSK] = ?</property>
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[first_name]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="200"
-                      cachedName="first_name"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[first_name]"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[first_name]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[last_name]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="200"
-                      cachedName="last_name"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[last_name]"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[last_name]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[email]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="350"
-                      cachedName="email"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[email]"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[email]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[city]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="100"
-                      cachedName="city"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[city]"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[city]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[country_name]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="200"
-                      cachedName="country_name"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[country_name]"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[country_name]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CustomerSK]"
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[book_id]"
                       cachedDataType="i4"
-                      cachedName="CustomerSK"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerSK]"
-                      lineageId="Package\Data Flow Task\Busqueda.Outputs[Lookup Match Output].Columns[CustomerSK]" />
+                      cachedName="book_id"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[book_id]"
+                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[book_id]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[street_number]"
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[title]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="10"
-                      cachedName="street_number"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[street_number]"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[street_number]" />
+                      cachedLength="400"
+                      cachedName="title"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[title]"
+                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[title]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[street_name]"
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[isbn13]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="200"
-                      cachedName="street_name"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[street_name]"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[street_name]" />
+                      cachedLength="13"
+                      cachedName="isbn13"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[isbn13]"
+                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[isbn13]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[address_status]"
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[language_code]"
                       cachedCodepage="1252"
                       cachedDataType="str"
-                      cachedLength="30"
-                      cachedName="address_status"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address_status]"
-                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[address_status]" />
+                      cachedLength="8"
+                      cachedName="language_code"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[language_code]"
+                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[language_code]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[language_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="language_name"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[language_name]"
+                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[language_name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[num_pages]"
+                      cachedDataType="i4"
+                      cachedName="num_pages"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[num_pages]"
+                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[num_pages]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[publication_date]"
+                      cachedDataType="dbDate"
+                      cachedName="publication_date"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[publication_date]"
+                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[publication_date]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[publisher_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="400"
+                      cachedName="publisher_name"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[publisher_name]"
+                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[publisher_name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[author_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="400"
+                      cachedName="author_name"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[author_name]"
+                      lineageId="Package\Data Flow Task\Get Order Status.Outputs[OLE DB Source Output].Columns[author_name]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[book_sk]"
+                      cachedDataType="i4"
+                      cachedName="book_sk"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[book_sk]"
+                      lineageId="Package\Data Flow Task\Busqueda.Outputs[Lookup Match Output].Columns[book_sk]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[load_datetime]"
-                      dataType="dbTimeStamp2"
-                      name="load_datetime"
-                      scale="7" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[batch_id]"
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[book_sk]"
                       dataType="i4"
-                      name="batch_id" />
+                      name="book_sk" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerSK]"
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[book_id]"
                       dataType="i4"
-                      name="CustomerSK" />
+                      name="book_id" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[first_name]"
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[title]"
                       codePage="1252"
                       dataType="str"
-                      length="200"
-                      name="first_name" />
+                      length="400"
+                      name="title" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[last_name]"
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[isbn13]"
                       codePage="1252"
                       dataType="str"
-                      length="200"
-                      name="last_name" />
+                      length="13"
+                      name="isbn13" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[email]"
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[num_pages]"
+                      dataType="i4"
+                      name="num_pages" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[publication_date]"
+                      dataType="dbDate"
+                      name="publication_date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[publisher_name]"
                       codePage="1252"
                       dataType="str"
-                      length="350"
-                      name="email" />
+                      length="400"
+                      name="publisher_name" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[city]"
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[language_code]"
                       codePage="1252"
                       dataType="str"
-                      length="100"
-                      name="city" />
+                      length="8"
+                      name="language_code" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[country_name]"
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[language_name]"
                       codePage="1252"
                       dataType="str"
-                      length="200"
-                      name="country_name" />
+                      length="50"
+                      name="language_name" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[street_number]"
+                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[author_name]"
                       codePage="1252"
                       dataType="str"
-                      length="10"
-                      name="street_number" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[street_name]"
-                      codePage="1252"
-                      dataType="str"
-                      length="200"
-                      name="street_name" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address_status]"
-                      codePage="1252"
-                      dataType="str"
-                      length="30"
-                      name="address_status" />
+                      length="400"
+                      name="author_name" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -1025,7 +998,7 @@ where [refTable].[CustomerSK] = ?</property>
       DTS:refId="Package\Get DB RowVersion"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tarea Ejecutar SQL"
-      DTS:DTSID="{53E41B26-E43D-408A-A817-7C00EF2D7A65}"
+      DTS:DTSID="{EA62D0E1-9E3C-4A82-BB1A-A49C84247904}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Get DB RowVersion"
@@ -1033,7 +1006,7 @@ where [refTable].[CustomerSK] = ?</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{87FD94FB-E46B-4C14-81F9-759040EAE4A1}"
+          SQLTask:Connection="{BB2E47E3-2E35-496F-9AD2-3F08DAC88F86}"
           SQLTask:SqlStatementSource="EXECUTE [dbo].[GetDatabaseRowVersion] "
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
@@ -1046,7 +1019,7 @@ where [refTable].[CustomerSK] = ?</property>
       DTS:refId="Package\Get Last RowVersion"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tarea Ejecutar SQL"
-      DTS:DTSID="{41288233-5B55-4AD2-876D-07E8DB2E3FB0}"
+      DTS:DTSID="{0AA84AD2-78BC-4B2C-823E-E0C9FB12A4BC}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Get Last RowVersion"
@@ -1055,7 +1028,7 @@ where [refTable].[CustomerSK] = ?</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{75F9CD8B-5704-49A8-AA98-E418097E010E}"
-          SQLTask:SqlStatementSource="EXECUTE [dbo].[GetLastPackageRowVersion] @tableName = 'customer'"
+          SQLTask:SqlStatementSource="EXECUTE [dbo].[GetLastPackageRowVersion] @tableName = 'book'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="LastRowVersion"
@@ -1067,7 +1040,7 @@ where [refTable].[CustomerSK] = ?</property>
       DTS:refId="Package\Sync Staging"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tarea Ejecutar SQL"
-      DTS:DTSID="{18442C67-7198-4C9B-9A46-2208808C3B96}"
+      DTS:DTSID="{177A7E14-31B6-4CDC-A9B1-3383FBF378C2}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Sync Staging"
@@ -1076,14 +1049,14 @@ where [refTable].[CustomerSK] = ?</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{75F9CD8B-5704-49A8-AA98-E418097E010E}"
-          SQLTask:SqlStatementSource="EXECUTE [dbo].[DW_MergeDimCustomer] " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="EXECUTE [dbo].[DW_MergeDimBook] " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Update Package"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Tarea Ejecutar SQL"
-      DTS:DTSID="{808C72E5-654B-47B4-A6A5-DAFC5693388A}"
+      DTS:DTSID="{ABD17754-C3C7-409D-9D9E-3FE98C19B42B}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
       DTS:ObjectName="Update Package"
@@ -1092,7 +1065,7 @@ where [refTable].[CustomerSK] = ?</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{75F9CD8B-5704-49A8-AA98-E418097E010E}"
-          SQLTask:SqlStatementSource="EXECUTE [dbo].[UpdateLastPackageRowVersion]  @tableName ='customer' ,@lastRowVersion = ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          SQLTask:SqlStatementSource="EXECUTE [dbo].[UpdateLastPackageRowVersion]  @tableName ='book' ,@lastRowVersion = ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ParameterBinding
             SQLTask:ParameterName="0"
             SQLTask:DtsVariableName="User::dbts"
@@ -1107,7 +1080,7 @@ where [refTable].[CustomerSK] = ?</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Restricción]"
       DTS:CreationName=""
-      DTS:DTSID="{5DAEE753-099B-415D-BAA7-14BE7E738757}"
+      DTS:DTSID="{6E5BCA1E-3E42-4CE1-92EA-3579269A3822}"
       DTS:From="Package\Get DB RowVersion"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción"
@@ -1115,7 +1088,7 @@ where [refTable].[CustomerSK] = ?</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Restricción 1]"
       DTS:CreationName=""
-      DTS:DTSID="{FC70D1E0-18D9-4309-B780-B9A5B91C18F8}"
+      DTS:DTSID="{CC733429-0BD2-4F48-9BCF-25FC106C2F39}"
       DTS:From="Package\Get Last RowVersion"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción 1"
@@ -1123,7 +1096,7 @@ where [refTable].[CustomerSK] = ?</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Restricción 2]"
       DTS:CreationName=""
-      DTS:DTSID="{16F51874-0C5C-4CD9-A9B0-8E6B166A89EF}"
+      DTS:DTSID="{A60CDA39-3069-404F-809C-ED0F732D841E}"
       DTS:From="Package\clean-up staging"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción 2"
@@ -1131,7 +1104,7 @@ where [refTable].[CustomerSK] = ?</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Restricción 3]"
       DTS:CreationName=""
-      DTS:DTSID="{5BFFCA40-2BAC-4AD8-942B-F90441C61A1E}"
+      DTS:DTSID="{255FBBE0-FA9E-443E-91EB-F3AE702A165E}"
       DTS:From="Package\Data Flow Task"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción 3"
@@ -1139,7 +1112,7 @@ where [refTable].[CustomerSK] = ?</property>
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Restricción 4]"
       DTS:CreationName=""
-      DTS:DTSID="{2A75298E-01C4-45D8-96B6-2E69627871B2}"
+      DTS:DTSID="{D8650C39-210E-4542-876F-88E40AB30921}"
       DTS:From="Package\Sync Staging"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Restricción 4"
@@ -1444,7 +1417,7 @@ where [refTable].[CustomerSK] = ?</property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[staging].[customer]</Value>
+          type="q3:string">[dbo].[DimBook]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
