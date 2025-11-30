@@ -82,6 +82,7 @@
     <Build Include="dw\Programmability\Stored Procedures\UpdateLastPackageRowVersion.sql" />
     <Build Include="dw\Programmability\Stored Procedures\DW_MergeDimShippingMethod.sql" />
     <Build Include="dw\Programmability\Stored Procedures\DW_MergeDimBook.sql" />
+    <Build Include="dw\Programmability\Stored Procedures\DW_MergeFactSales.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Scripts\DimDate.data.sql" />
@@ -89,6 +90,7 @@
     <None Include="Scripts\PatchDimDate.data.sql" />
     <Build Include="dw\Programmability\Stored Procedures\DW_MergeDimOrderStatus.sql" />
     <Build Include="dw\Programmability\Stored Procedures\DW_MergeDimCustomer.sql" />
+    <None Include="BookstoreDB_DW.publish.xml" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Scripts\Script.PostDeployment.sql" />

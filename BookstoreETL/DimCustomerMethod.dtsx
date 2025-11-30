@@ -11,8 +11,8 @@
   DTS:LocaleID="16394"
   DTS:ObjectName="DimCustomerMethod"
   DTS:PackageType="5"
-  DTS:VersionBuild="46"
-  DTS:VersionGUID="{45D35401-7620-4D91-8BAD-69509CE5909A}">
+  DTS:VersionBuild="47"
+  DTS:VersionGUID="{DC774558-1FB8-4965-9AF9-6DEB471DC50A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -916,10 +916,6 @@ where [refTable].[CustomerSK] = ?</property>
                       dataType="dbTimeStamp2"
                       name="load_datetime"
                       scale="7" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[batch_id]"
-                      dataType="i4"
-                      name="batch_id" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CustomerSK]"
                       dataType="i4"
