@@ -6,7 +6,7 @@
     "dataSources": [
       {
         "name": "SqlServer localhost BookstoreDW",
-        "connectionString": "Provider=SQLNCLI11;Data Source=localhost;Persist Security Info=true;User ID=sa;Initial Catalog=BookstoreDW",
+        "connectionString": "Provider=SQLNCLI11;Data Source=localhost;Persist Security Info=true;User ID=sa;Initial Catalog=BookstoreDW;Integrated Security=SSPI",
         "impersonationMode": "impersonateServiceAccount",
         "annotations": [
           {
@@ -464,14 +464,12 @@
           {
             "name": "OrderId",
             "dataType": "int64",
-            "isHidden": true,
             "sourceColumn": "OrderId",
             "sourceProviderType": "Integer"
           },
           {
             "name": "LineId",
             "dataType": "int64",
-            "isHidden": true,
             "sourceColumn": "LineId",
             "sourceProviderType": "Integer"
           },
@@ -528,12 +526,197 @@
         "partitions": [
           {
             "name": "Fact_Sales",
-            "dataView": "full",
             "source": {
               "type": "query",
-              "query": " \t\t\t\tSELECT [dbo].[Fact_Sales].*   FROM [dbo].[Fact_Sales] ",
+              "query": "SELECT [dbo].[Fact_Sales].*   FROM [dbo].[Fact_Sales]",
               "dataSource": "SqlServer localhost BookstoreDW"
-            }
+            },
+            "annotations": [
+              {
+                "name": "TableWidgetSerialization",
+                "value": [
+                  "<?xml version=\"1.0\" encoding=\"UTF-16\"?><Gemini xmlns=\"TableWidgetSerialization\"><AnnotationContent><![CDATA[<?xml version=\"1.0\"?>",
+                  "<TableWidgetGridSerialization xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">",
+                  "  <ColumnSuggestedType />",
+                  "  <ColumnFormat />",
+                  "  <ColumnAccuracy />",
+                  "  <ColumnCurrencySymbol />",
+                  "  <ColumnPositivePattern />",
+                  "  <ColumnNegativePattern />",
+                  "  <ColumnWidths>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>order_date_key</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>107</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>book_sk</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>69</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>customer_sk</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>90</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>shipping_method_sk</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>127</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>dest_address_sk</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>111</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>OrderId</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>68</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>LineId</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>59</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>quantity</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>70</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>unit_price</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>77</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>line_amount</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>88</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnWidths>",
+                  "  <ColumnDisplayIndex>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>order_date_key</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>0</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>book_sk</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>1</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>customer_sk</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>2</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>shipping_method_sk</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>3</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>dest_address_sk</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>4</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>OrderId</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>5</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>LineId</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>6</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>quantity</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>7</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>unit_price</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>8</int>",
+                  "      </value>",
+                  "    </item>",
+                  "    <item>",
+                  "      <key>",
+                  "        <string>line_amount</string>",
+                  "      </key>",
+                  "      <value>",
+                  "        <int>9</int>",
+                  "      </value>",
+                  "    </item>",
+                  "  </ColumnDisplayIndex>",
+                  "  <ColumnFrozen />",
+                  "  <ColumnChecked />",
+                  "  <ColumnFilter />",
+                  "  <SelectionFilter />",
+                  "  <FilterParameters />",
+                  "  <IsSortDescending>false</IsSortDescending>",
+                  "</TableWidgetGridSerialization>]]></AnnotationContent></Gemini>"
+                ]
+              }
+            ]
           }
         ],
         "measures": [
@@ -673,6 +856,191 @@
         "fromColumn": "shipping_method_sk",
         "toTable": "ShippingMethod",
         "toColumn": "shipping_method_sk"
+      }
+    ],
+    "perspectives": [
+      {
+        "name": "HR",
+        "tables": [
+          {
+            "name": "Book",
+            "columns": [
+              {
+                "name": "title"
+              }
+            ]
+          },
+          {
+            "name": "Date",
+            "columns": [
+              {
+                "name": "CalendarYear"
+              },
+              {
+                "name": "MonthName"
+              }
+            ]
+          },
+          {
+            "name": "Sales",
+            "measures": [
+              {
+                "name": "TotalBigSalesNetSales"
+              },
+              {
+                "name": "TotalNetSales"
+              },
+              {
+                "name": "TotalNetSalesBigCost"
+              },
+              {
+                "name": "TotalNetSalesSimpleCost"
+              },
+              {
+                "name": "TotalSimpleSalesNetSales"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Sales",
+        "tables": [
+          {
+            "name": "Address",
+            "columns": [
+              {
+                "name": "city"
+              },
+              {
+                "name": "country_name"
+              }
+            ]
+          },
+          {
+            "name": "Book",
+            "columns": [
+              {
+                "name": "author_name"
+              },
+              {
+                "name": "language_code"
+              },
+              {
+                "name": "publisher_name"
+              },
+              {
+                "name": "title"
+              }
+            ]
+          },
+          {
+            "name": "Customer",
+            "columns": [
+              {
+                "name": "full_name"
+              }
+            ]
+          },
+          {
+            "name": "Date",
+            "columns": [
+              {
+                "name": "CalendarYear"
+              },
+              {
+                "name": "MonthName"
+              }
+            ]
+          },
+          {
+            "name": "Sales",
+            "columns": [
+              {
+                "name": "SaleCostType"
+              },
+              {
+                "name": "SaleType"
+              }
+            ],
+            "measures": [
+              {
+                "name": "TotalBigCostGrossSales"
+              },
+              {
+                "name": "TotalBigSaleQuantity"
+              },
+              {
+                "name": "TotalBigSalesGrossSales"
+              },
+              {
+                "name": "TotalBigSalesNetSales"
+              },
+              {
+                "name": "TotalGrossSales"
+              },
+              {
+                "name": "TotalNetSales"
+              },
+              {
+                "name": "TotalNetSalesBigCost"
+              },
+              {
+                "name": "TotalNetSalesSimpleCost"
+              },
+              {
+                "name": "TotalProfit"
+              },
+              {
+                "name": "TotalProfitBigCost"
+              },
+              {
+                "name": "TotalProfitBigSales"
+              },
+              {
+                "name": "TotalProfitSimpleCost"
+              },
+              {
+                "name": "TotalProfitSimpleSales"
+              },
+              {
+                "name": "TotalQuantity"
+              },
+              {
+                "name": "TotalQuantityBigCost"
+              },
+              {
+                "name": "TotalQuantitySimpleCost"
+              },
+              {
+                "name": "TotalSales"
+              },
+              {
+                "name": "TotalSimpleCostGrossSales"
+              },
+              {
+                "name": "TotalSimpleSaleGrossSale"
+              },
+              {
+                "name": "TotalSimpleSaleQuantity"
+              },
+              {
+                "name": "TotalSimpleSalesNetSales"
+              }
+            ]
+          },
+          {
+            "name": "ShippingMethod",
+            "columns": [
+              {
+                "name": "base_cost"
+              },
+              {
+                "name": "method_name"
+              }
+            ]
+          }
+        ]
       }
     ],
     "annotations": [

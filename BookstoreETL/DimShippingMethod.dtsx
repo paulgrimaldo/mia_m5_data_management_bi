@@ -11,8 +11,8 @@
   DTS:LocaleID="3082"
   DTS:ObjectName="DimOrder"
   DTS:PackageType="5"
-  DTS:VersionBuild="38"
-  DTS:VersionGUID="{0B297D8D-9945-4DA1-8A41-FF92E9472653}">
+  DTS:VersionBuild="39"
+  DTS:VersionGUID="{A36BFE9A-835D-4EAA-B4E6-B212DEE0ECEB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -100,7 +100,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{75F9CD8B-5704-49A8-AA98-E418097E010E}"
+          SQLTask:Connection="{92C2A03C-C3C3-43D9-992F-6A73746F7430}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE staging.shipping_method;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -148,7 +148,7 @@
       </DTS:Variables>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{75F9CD8B-5704-49A8-AA98-E418097E010E}"
+          SQLTask:Connection="{92C2A03C-C3C3-43D9-992F-6A73746F7430}"
           SQLTask:SqlStatementSource="EXECUTE [dbo].[GetLastPackageRowVersion] @tableName = 'ShippingMethod'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
@@ -806,7 +806,7 @@ where [refTable].[method_id] = ?</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{75F9CD8B-5704-49A8-AA98-E418097E010E}"
+          SQLTask:Connection="{92C2A03C-C3C3-43D9-992F-6A73746F7430}"
           SQLTask:SqlStatementSource="EXECUTE [dbo].[DW_MergeDimShippingMethod] " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -822,7 +822,7 @@ where [refTable].[method_id] = ?</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{75F9CD8B-5704-49A8-AA98-E418097E010E}"
+          SQLTask:Connection="{92C2A03C-C3C3-43D9-992F-6A73746F7430}"
           SQLTask:SqlStatementSource="EXECUTE [dbo].[UpdateLastPackageRowVersion] @tableName = 'ShippingMethod' ,@lastRowVersion = ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ParameterBinding
             SQLTask:ParameterName="0"
@@ -1155,7 +1155,7 @@ where [refTable].[method_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="22.6943070045947,33.961337201147,213.778046875,12.1953125"
+              BoundingBox="22.6943070045945,33.961337201147,213.778046875,12.1953125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
