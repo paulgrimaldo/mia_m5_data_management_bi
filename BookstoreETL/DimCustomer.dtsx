@@ -11,8 +11,8 @@
   DTS:LocaleID="16394"
   DTS:ObjectName="DimCustomer"
   DTS:PackageType="5"
-  DTS:VersionBuild="61"
-  DTS:VersionGUID="{50010F56-31B6-4F46-BB55-131077880D2A}">
+  DTS:VersionBuild="65"
+  DTS:VersionGUID="{713E45C2-080D-4875-83CF-AA7FF99F3249}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -139,7 +139,7 @@ where [refTable].[customer_id] = ?</property>
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[customer_id]};</property>
+                  name="ParameterMap">#{Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Output].Columns[customer_id]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -166,7 +166,7 @@ where [refTable].[customer_id] = ?</property>
                       refId="Package\Data Flow Task\Busqueda.Inputs[Lookup Input].Columns[customer_id]"
                       cachedDataType="i4"
                       cachedName="customer_id"
-                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[customer_id]">
+                      lineageId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Output].Columns[customer_id]">
                       <properties>
                         <property
                           dataType="System.String"
@@ -240,11 +240,11 @@ where [refTable].[customer_id] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\Get Book"
+              refId="Package\Data Flow Task\Get Customer"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
               description="OLE DB Source"
-              name="Get Book"
+              name="Get Customer"
               usesDispositions="true"
               version="7">
               <properties>
@@ -289,7 +289,7 @@ where [refTable].[customer_id] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\Get Book.Connections[OleDbConnection]"
+                  refId="Package\Data Flow Task\Get Customer.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[localhost.Bookstore]"
                   connectionManagerRefId="Package.ConnectionManagers[localhost.Bookstore]"
                   description="The OLE DB runtime connection used to access the database."
@@ -297,72 +297,72 @@ where [refTable].[customer_id] = ?</property>
               </connections>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output]"
+                  refId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Output]"
                   name="OLE DB Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[customer_id]"
+                      refId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Output].Columns[customer_id]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].ExternalColumns[customer_id]"
-                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[customer_id]"
+                      externalMetadataColumnId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Output].ExternalColumns[customer_id]"
+                      lineageId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Output].Columns[customer_id]"
                       name="customer_id"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[first_name]"
+                      refId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Output].Columns[first_name]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].ExternalColumns[first_name]"
+                      externalMetadataColumnId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Output].ExternalColumns[first_name]"
                       length="200"
-                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[first_name]"
+                      lineageId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Output].Columns[first_name]"
                       name="first_name"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[last_name]"
+                      refId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Output].Columns[last_name]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].ExternalColumns[last_name]"
+                      externalMetadataColumnId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Output].ExternalColumns[last_name]"
                       length="200"
-                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[last_name]"
+                      lineageId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Output].Columns[last_name]"
                       name="last_name"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[email]"
+                      refId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Output].Columns[email]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].ExternalColumns[email]"
+                      externalMetadataColumnId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Output].ExternalColumns[email]"
                       length="350"
-                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[email]"
+                      lineageId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Output].Columns[email]"
                       name="email"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].ExternalColumns[customer_id]"
+                      refId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Output].ExternalColumns[customer_id]"
                       dataType="i4"
                       name="customer_id" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].ExternalColumns[first_name]"
+                      refId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Output].ExternalColumns[first_name]"
                       codePage="1252"
                       dataType="str"
                       length="200"
                       name="first_name" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].ExternalColumns[last_name]"
+                      refId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Output].ExternalColumns[last_name]"
                       codePage="1252"
                       dataType="str"
                       length="200"
                       name="last_name" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].ExternalColumns[email]"
+                      refId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Output].ExternalColumns[email]"
                       codePage="1252"
                       dataType="str"
                       length="350"
@@ -370,46 +370,46 @@ where [refTable].[customer_id] = ?</property>
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Error Output]"
+                  refId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Error Output]"
                   isErrorOut="true"
                   name="OLE DB Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Error Output].Columns[customer_id]"
+                      refId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Error Output].Columns[customer_id]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Error Output].Columns[customer_id]"
+                      lineageId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Error Output].Columns[customer_id]"
                       name="customer_id" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Error Output].Columns[first_name]"
+                      refId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Error Output].Columns[first_name]"
                       codePage="1252"
                       dataType="str"
                       length="200"
-                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Error Output].Columns[first_name]"
+                      lineageId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Error Output].Columns[first_name]"
                       name="first_name" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Error Output].Columns[last_name]"
+                      refId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Error Output].Columns[last_name]"
                       codePage="1252"
                       dataType="str"
                       length="200"
-                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Error Output].Columns[last_name]"
+                      lineageId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Error Output].Columns[last_name]"
                       name="last_name" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Error Output].Columns[email]"
+                      refId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Error Output].Columns[email]"
                       codePage="1252"
                       dataType="str"
                       length="350"
-                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Error Output].Columns[email]"
+                      lineageId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Error Output].Columns[email]"
                       name="email" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      refId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -418,11 +418,11 @@ where [refTable].[customer_id] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\Load Book"
+              refId="Package\Data Flow Task\Load Customer"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="Load Book"
+              name="Load Customer"
               usesDispositions="true"
               version="4">
               <properties>
@@ -475,7 +475,7 @@ where [refTable].[customer_id] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\Load Book.Connections[OleDbConnection]"
+                  refId="Package\Data Flow Task\Load Customer.Connections[OleDbConnection]"
                   connectionManagerID="{75F9CD8B-5704-49A8-AA98-E418097E010E}:external"
                   connectionManagerRefId="Project.ConnectionManagers[localhost.BookstoreDW]"
                   description="The OLE DB runtime connection used to access the database."
@@ -483,67 +483,67 @@ where [refTable].[customer_id] = ?</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\Load Book.Inputs[OLE DB Destination Input]"
+                  refId="Package\Data Flow Task\Load Customer.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Load Book.Inputs[OLE DB Destination Input].Columns[customer_id]"
+                      refId="Package\Data Flow Task\Load Customer.Inputs[OLE DB Destination Input].Columns[customer_id]"
                       cachedDataType="i4"
                       cachedName="customer_id"
-                      externalMetadataColumnId="Package\Data Flow Task\Load Book.Inputs[OLE DB Destination Input].ExternalColumns[customer_id]"
-                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[customer_id]" />
+                      externalMetadataColumnId="Package\Data Flow Task\Load Customer.Inputs[OLE DB Destination Input].ExternalColumns[customer_id]"
+                      lineageId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Output].Columns[customer_id]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Load Book.Inputs[OLE DB Destination Input].Columns[first_name]"
+                      refId="Package\Data Flow Task\Load Customer.Inputs[OLE DB Destination Input].Columns[first_name]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="200"
                       cachedName="first_name"
-                      externalMetadataColumnId="Package\Data Flow Task\Load Book.Inputs[OLE DB Destination Input].ExternalColumns[first_name]"
-                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[first_name]" />
+                      externalMetadataColumnId="Package\Data Flow Task\Load Customer.Inputs[OLE DB Destination Input].ExternalColumns[first_name]"
+                      lineageId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Output].Columns[first_name]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Load Book.Inputs[OLE DB Destination Input].Columns[last_name]"
+                      refId="Package\Data Flow Task\Load Customer.Inputs[OLE DB Destination Input].Columns[last_name]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="200"
                       cachedName="last_name"
-                      externalMetadataColumnId="Package\Data Flow Task\Load Book.Inputs[OLE DB Destination Input].ExternalColumns[last_name]"
-                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[last_name]" />
+                      externalMetadataColumnId="Package\Data Flow Task\Load Customer.Inputs[OLE DB Destination Input].ExternalColumns[last_name]"
+                      lineageId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Output].Columns[last_name]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Load Book.Inputs[OLE DB Destination Input].Columns[email]"
+                      refId="Package\Data Flow Task\Load Customer.Inputs[OLE DB Destination Input].Columns[email]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="350"
                       cachedName="email"
-                      externalMetadataColumnId="Package\Data Flow Task\Load Book.Inputs[OLE DB Destination Input].ExternalColumns[email]"
-                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[email]" />
+                      externalMetadataColumnId="Package\Data Flow Task\Load Customer.Inputs[OLE DB Destination Input].ExternalColumns[email]"
+                      lineageId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Output].Columns[email]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Load Book.Inputs[OLE DB Destination Input].ExternalColumns[customer_sk]"
+                      refId="Package\Data Flow Task\Load Customer.Inputs[OLE DB Destination Input].ExternalColumns[customer_sk]"
                       dataType="i4"
                       name="customer_sk" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Load Book.Inputs[OLE DB Destination Input].ExternalColumns[customer_id]"
+                      refId="Package\Data Flow Task\Load Customer.Inputs[OLE DB Destination Input].ExternalColumns[customer_id]"
                       dataType="i4"
                       name="customer_id" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Load Book.Inputs[OLE DB Destination Input].ExternalColumns[first_name]"
+                      refId="Package\Data Flow Task\Load Customer.Inputs[OLE DB Destination Input].ExternalColumns[first_name]"
                       codePage="1252"
                       dataType="str"
                       length="200"
                       name="first_name" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Load Book.Inputs[OLE DB Destination Input].ExternalColumns[last_name]"
+                      refId="Package\Data Flow Task\Load Customer.Inputs[OLE DB Destination Input].ExternalColumns[last_name]"
                       codePage="1252"
                       dataType="str"
                       length="200"
                       name="last_name" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Load Book.Inputs[OLE DB Destination Input].ExternalColumns[email]"
+                      refId="Package\Data Flow Task\Load Customer.Inputs[OLE DB Destination Input].ExternalColumns[email]"
                       codePage="1252"
                       dataType="str"
                       length="350"
@@ -553,22 +553,22 @@ where [refTable].[customer_id] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Load Book.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\Data Flow Task\Load Customer.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Data Flow Task\Load Book.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\Data Flow Task\Load Customer.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Load Book.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\Data Flow Task\Load Customer.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Load Book.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Data Flow Task\Load Customer.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Load Book.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\Data Flow Task\Load Customer.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Load Book.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Data Flow Task\Load Customer.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -577,11 +577,11 @@ where [refTable].[customer_id] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\Updated Existing Book Method"
+              refId="Package\Data Flow Task\Updated Existing Customer"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="Updated Existing Book Method"
+              name="Updated Existing Customer"
               usesDispositions="true"
               version="4">
               <properties>
@@ -634,7 +634,7 @@ where [refTable].[customer_id] = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\Updated Existing Book Method.Connections[OleDbConnection]"
+                  refId="Package\Data Flow Task\Updated Existing Customer.Connections[OleDbConnection]"
                   connectionManagerID="{75F9CD8B-5704-49A8-AA98-E418097E010E}:external"
                   connectionManagerRefId="Project.ConnectionManagers[localhost.BookstoreDW]"
                   description="The OLE DB runtime connection used to access the database."
@@ -642,69 +642,69 @@ where [refTable].[customer_id] = ?</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\Updated Existing Book Method.Inputs[OLE DB Destination Input]"
+                  refId="Package\Data Flow Task\Updated Existing Customer.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Updated Existing Book Method.Inputs[OLE DB Destination Input].Columns[first_name]"
+                      refId="Package\Data Flow Task\Updated Existing Customer.Inputs[OLE DB Destination Input].Columns[first_name]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="200"
                       cachedName="first_name"
-                      externalMetadataColumnId="Package\Data Flow Task\Updated Existing Book Method.Inputs[OLE DB Destination Input].ExternalColumns[first_name]"
-                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[first_name]" />
+                      externalMetadataColumnId="Package\Data Flow Task\Updated Existing Customer.Inputs[OLE DB Destination Input].ExternalColumns[first_name]"
+                      lineageId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Output].Columns[first_name]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Updated Existing Book Method.Inputs[OLE DB Destination Input].Columns[last_name]"
+                      refId="Package\Data Flow Task\Updated Existing Customer.Inputs[OLE DB Destination Input].Columns[last_name]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="200"
                       cachedName="last_name"
-                      externalMetadataColumnId="Package\Data Flow Task\Updated Existing Book Method.Inputs[OLE DB Destination Input].ExternalColumns[last_name]"
-                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[last_name]" />
+                      externalMetadataColumnId="Package\Data Flow Task\Updated Existing Customer.Inputs[OLE DB Destination Input].ExternalColumns[last_name]"
+                      lineageId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Output].Columns[last_name]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Updated Existing Book Method.Inputs[OLE DB Destination Input].Columns[email]"
+                      refId="Package\Data Flow Task\Updated Existing Customer.Inputs[OLE DB Destination Input].Columns[email]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="350"
                       cachedName="email"
-                      externalMetadataColumnId="Package\Data Flow Task\Updated Existing Book Method.Inputs[OLE DB Destination Input].ExternalColumns[email]"
-                      lineageId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output].Columns[email]" />
+                      externalMetadataColumnId="Package\Data Flow Task\Updated Existing Customer.Inputs[OLE DB Destination Input].ExternalColumns[email]"
+                      lineageId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Output].Columns[email]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\Updated Existing Book Method.Inputs[OLE DB Destination Input].Columns[customer_sk]"
+                      refId="Package\Data Flow Task\Updated Existing Customer.Inputs[OLE DB Destination Input].Columns[customer_sk]"
                       cachedDataType="i4"
                       cachedName="customer_sk"
-                      externalMetadataColumnId="Package\Data Flow Task\Updated Existing Book Method.Inputs[OLE DB Destination Input].ExternalColumns[CustomerSK]"
+                      externalMetadataColumnId="Package\Data Flow Task\Updated Existing Customer.Inputs[OLE DB Destination Input].ExternalColumns[CustomerSK]"
                       lineageId="Package\Data Flow Task\Busqueda.Outputs[Lookup Match Output].Columns[customer_sk]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Updated Existing Book Method.Inputs[OLE DB Destination Input].ExternalColumns[first_name]"
+                      refId="Package\Data Flow Task\Updated Existing Customer.Inputs[OLE DB Destination Input].ExternalColumns[first_name]"
                       codePage="1252"
                       dataType="str"
                       length="200"
                       name="first_name" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Updated Existing Book Method.Inputs[OLE DB Destination Input].ExternalColumns[last_name]"
+                      refId="Package\Data Flow Task\Updated Existing Customer.Inputs[OLE DB Destination Input].ExternalColumns[last_name]"
                       codePage="1252"
                       dataType="str"
                       length="200"
                       name="last_name" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Updated Existing Book Method.Inputs[OLE DB Destination Input].ExternalColumns[email]"
+                      refId="Package\Data Flow Task\Updated Existing Customer.Inputs[OLE DB Destination Input].ExternalColumns[email]"
                       codePage="1252"
                       dataType="str"
                       length="350"
                       name="email" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Updated Existing Book Method.Inputs[OLE DB Destination Input].ExternalColumns[CustomerSK]"
+                      refId="Package\Data Flow Task\Updated Existing Customer.Inputs[OLE DB Destination Input].ExternalColumns[CustomerSK]"
                       dataType="i4"
                       name="CustomerSK" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\Updated Existing Book Method.Inputs[OLE DB Destination Input].ExternalColumns[load_datetime]"
+                      refId="Package\Data Flow Task\Updated Existing Customer.Inputs[OLE DB Destination Input].ExternalColumns[load_datetime]"
                       dataType="dbTimeStamp2"
                       name="load_datetime"
                       scale="7" />
@@ -713,22 +713,22 @@ where [refTable].[customer_id] = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\Updated Existing Book Method.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\Data Flow Task\Updated Existing Customer.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Data Flow Task\Updated Existing Book Method.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\Data Flow Task\Updated Existing Customer.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\Updated Existing Book Method.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\Data Flow Task\Updated Existing Customer.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Updated Existing Book Method.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Data Flow Task\Updated Existing Customer.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\Updated Existing Book Method.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\Data Flow Task\Updated Existing Customer.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\Updated Existing Book Method.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Data Flow Task\Updated Existing Customer.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -740,19 +740,19 @@ where [refTable].[customer_id] = ?</property>
           <paths>
             <path
               refId="Package\Data Flow Task.Paths[Lookup Match Output]"
-              endId="Package\Data Flow Task\Updated Existing Book Method.Inputs[OLE DB Destination Input]"
+              endId="Package\Data Flow Task\Updated Existing Customer.Inputs[OLE DB Destination Input]"
               name="Lookup Match Output"
               startId="Package\Data Flow Task\Busqueda.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Data Flow Task.Paths[Lookup No Match Output]"
-              endId="Package\Data Flow Task\Load Book.Inputs[OLE DB Destination Input]"
+              endId="Package\Data Flow Task\Load Customer.Inputs[OLE DB Destination Input]"
               name="Lookup No Match Output"
               startId="Package\Data Flow Task\Busqueda.Outputs[Lookup No Match Output]" />
             <path
               refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
               endId="Package\Data Flow Task\Busqueda.Inputs[Lookup Input]"
               name="OLE DB Source Output"
-              startId="Package\Data Flow Task\Get Book.Outputs[OLE DB Source Output]" />
+              startId="Package\Data Flow Task\Get Customer.Outputs[OLE DB Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -791,7 +791,7 @@ where [refTable].[customer_id] = ?</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{75F9CD8B-5704-49A8-AA98-E418097E010E}"
-          SQLTask:SqlStatementSource="EXECUTE [dbo].[GetLastPackageRowVersion] @tableName = 'book'"
+          SQLTask:SqlStatementSource="EXECUTE [dbo].[GetLastPackageRowVersion] @tableName = 'Customer'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
             SQLTask:ResultName="LastRowVersion"
@@ -1036,30 +1036,30 @@ where [refTable].[customer_id] = ?</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="125,42"
-          Id="Package\Data Flow Task\Get Book"
+          Size="144,42"
+          Id="Package\Data Flow Task\Get Customer"
           TopLeft="400,142" />
         <NodeLayout
-          Size="131,42"
-          Id="Package\Data Flow Task\Load Book"
+          Size="150,42"
+          Id="Package\Data Flow Task\Load Customer"
           TopLeft="656,359" />
+        <NodeLayout
+          Size="206,42"
+          Id="Package\Data Flow Task\Updated Existing Customer"
+          TopLeft="295,360" />
         <NodeLayout
           Size="129,42"
           Id="Package\Data Flow Task\Busqueda"
           TopLeft="422,249" />
-        <NodeLayout
-          Size="230,42"
-          Id="Package\Data Flow Task\Updated Existing Book Method"
-          TopLeft="295,360" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
-          TopLeft="462.5,184">
+          TopLeft="472,184">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="24,65"
+              EndConnector="14.5,65"
               Start="0,0"
-              End="24,57.5">
+              End="14.5,57.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -1070,13 +1070,13 @@ where [refTable].[customer_id] = ?</property>
                     Point2="0,32.5"
                     Point3="4,32.5" />
                   <mssgle:LineSegment
-                    End="20,32.5" />
+                    End="10.5,32.5" />
                   <mssgle:CubicBezierSegment
-                    Point1="20,32.5"
-                    Point2="24,32.5"
-                    Point3="24,36.5" />
+                    Point1="10.5,32.5"
+                    Point2="14.5,32.5"
+                    Point3="14.5,36.5" />
                   <mssgle:LineSegment
-                    End="24,57.5" />
+                    End="14.5,57.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1091,9 +1091,9 @@ where [refTable].[customer_id] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="214.833333333333,68"
+              EndConnector="224.333333333333,68"
               Start="0,0"
-              End="214.833333333333,60.5">
+              End="224.333333333333,60.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -1104,20 +1104,20 @@ where [refTable].[customer_id] = ?</property>
                     Point2="0,27.6998468606432"
                     Point3="4,27.6998468606432" />
                   <mssgle:LineSegment
-                    End="210.833333333333,27.6998468606432" />
+                    End="220.333333333333,27.6998468606432" />
                   <mssgle:CubicBezierSegment
-                    Point1="210.833333333333,27.6998468606432"
-                    Point2="214.833333333333,27.6998468606432"
-                    Point3="214.833333333333,31.6998468606432" />
+                    Point1="220.333333333333,27.6998468606432"
+                    Point2="224.333333333333,27.6998468606432"
+                    Point3="224.333333333333,31.6998468606432" />
                   <mssgle:LineSegment
-                    End="214.833333333333,60.5" />
+                    End="224.333333333333,60.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="51.6102799479167,32.6998468606432,111.6127734375,11.609375"
+              BoundingBox="56.3602799479167,32.6998468606432,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1127,9 +1127,9 @@ where [refTable].[customer_id] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-56.3333333333333,69"
+              EndConnector="-68.3333333333333,69"
               Start="0,0"
-              End="-56.3333333333333,61.5">
+              End="-68.3333333333333,61.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -1140,20 +1140,20 @@ where [refTable].[customer_id] = ?</property>
                     Point2="0,28.1071975497703"
                     Point3="-4,28.1071975497703" />
                   <mssgle:LineSegment
-                    End="-52.3333333333333,28.1071975497703" />
+                    End="-64.3333333333333,28.1071975497703" />
                   <mssgle:CubicBezierSegment
-                    Point1="-52.3333333333333,28.1071975497703"
-                    Point2="-56.3333333333333,28.1071975497703"
-                    Point3="-56.3333333333333,32.1071975497703" />
+                    Point1="-64.3333333333333,28.1071975497703"
+                    Point2="-68.3333333333333,28.1071975497703"
+                    Point3="-68.3333333333333,32.1071975497703" />
                   <mssgle:LineSegment
-                    End="-56.3333333333333,61.5" />
+                    End="-68.3333333333333,61.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-76.3580533854167,33.1071975497703,96.3827734375,11.609375"
+              BoundingBox="-82.3580533854167,33.1071975497703,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1161,7 +1161,7 @@ where [refTable].[customer_id] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Get Book">
+    design-time-name="Package\Data Flow Task\Get Customer">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1169,7 +1169,20 @@ where [refTable].[customer_id] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Load Book">
+    design-time-name="Package\Data Flow Task\Load Customer">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Updated Existing Customer">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -1201,19 +1214,6 @@ where [refTable].[customer_id] = ?</property>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\Updated Existing Book Method">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
