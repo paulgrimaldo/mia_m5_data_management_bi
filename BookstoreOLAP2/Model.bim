@@ -63,7 +63,8 @@
             "name": "OrderId",
             "dataType": "int64",
             "isHidden": true,
-            "sourceColumn": "OrderId"
+            "sourceColumn": "OrderId",
+            "summarizeBy": "none"
           },
           {
             "name": "LineId",
@@ -74,16 +75,19 @@
           {
             "name": "quantity",
             "dataType": "int64",
+            "isHidden": true,
             "sourceColumn": "quantity"
           },
           {
             "name": "unit_price",
             "dataType": "double",
+            "isHidden": true,
             "sourceColumn": "unit_price"
           },
           {
             "name": "line_amount",
             "dataType": "double",
+            "isHidden": true,
             "sourceColumn": "line_amount"
           },
           {
@@ -91,6 +95,7 @@
             "name": "GrossSale",
             "dataType": "double",
             "isDataTypeInferred": true,
+            "isHidden": true,
             "expression": "Sales[line_amount] + Sales[ShippingCost]"
           },
           {
@@ -98,6 +103,7 @@
             "name": "NetSale",
             "dataType": "double",
             "isDataTypeInferred": true,
+            "isHidden": true,
             "expression": "Sales[GrossSale]- Sales[ShippingCost]"
           },
           {
@@ -105,6 +111,7 @@
             "name": "SaleType",
             "dataType": "string",
             "isDataTypeInferred": true,
+            "isHidden": true,
             "expression": "IF(CALCULATE(SUM(Sales[quantity]), ALLEXCEPT(Sales, Sales[OrderId])) > 1, \"Big Sale\", \"Simple Sale\")"
           },
           {
@@ -112,6 +119,7 @@
             "name": "SaleCostType",
             "dataType": "string",
             "isDataTypeInferred": true,
+            "isHidden": true,
             "expression": "IF(CALCULATE(SUM(Sales[line_amount]), ALLEXCEPT(Sales,Sales[OrderId])) < RELATED(ShippingMethod[base_cost]), \"Big Cost\", \"Simple Cost\")"
           },
           {
@@ -119,6 +127,7 @@
             "name": "ShippingCost",
             "dataType": "double",
             "isDataTypeInferred": true,
+            "isHidden": true,
             "expression": " Sales[quantity] * DIVIDE(RELATED(ShippingMethod[base_cost]), CALCULATE(SUM(Sales[quantity]), ALLEXCEPT(Sales, Sales[OrderId])))"
           }
         ],
