@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Development</Configuration>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{8CE414BB-95B2-4C99-9E03-51BA72086E22}</ProjectGuid>
+    <ProjectGuid>{ff8158dd-b673-4aa9-b73b-88bd62e7f00d}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>MyRootNamespace</RootNamespace>
     <AssemblyName>MyAssemblyName</AssemblyName>
@@ -27,7 +27,7 @@
     <DeploymentServerName>localhost</DeploymentServerName>
     <DeploymentServerEdition>Developer</DeploymentServerEdition>
     <DeploymentServerVersion>Unknown</DeploymentServerVersion>
-    <DeploymentServerDatabase>BookstoreOLAP</DeploymentServerDatabase>
+    <DeploymentServerDatabase>BookstoreOLAP2</DeploymentServerDatabase>
     <DeploymentServerCubeName>Modelo</DeploymentServerCubeName>
     <DeploymentOptionProcessing>Default</DeploymentOptionProcessing>
     <DeploymentOptionTransactionalDeployment>False</DeploymentOptionTransactionalDeployment>

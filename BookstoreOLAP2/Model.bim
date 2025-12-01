@@ -1,0 +1,747 @@
+{
+  "name": "SemanticModel",
+  "compatibilityLevel": 1600,
+  "model": {
+    "culture": "en-US",
+    "dataSources": [
+      {
+        "type": "structured",
+        "name": "SQL/localhost;BookstoreDW",
+        "connectionDetails": {
+          "protocol": "tds",
+          "address": {
+            "server": "localhost",
+            "database": "BookstoreDW"
+          },
+          "authentication": null,
+          "query": null
+        },
+        "credential": {
+          "AuthenticationKind": "UsernamePassword",
+          "kind": "SQL",
+          "path": "localhost;BookstoreDW",
+          "Username": "sa",
+          "EncryptConnection": false
+        }
+      }
+    ],
+    "tables": [
+      {
+        "name": "Sales",
+        "columns": [
+          {
+            "name": "order_date_key",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "order_date_key"
+          },
+          {
+            "name": "book_sk",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "book_sk"
+          },
+          {
+            "name": "customer_sk",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "customer_sk"
+          },
+          {
+            "name": "shipping_method_sk",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "shipping_method_sk"
+          },
+          {
+            "name": "dest_address_sk",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "dest_address_sk"
+          },
+          {
+            "name": "OrderId",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "OrderId"
+          },
+          {
+            "name": "LineId",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "LineId"
+          },
+          {
+            "name": "quantity",
+            "dataType": "int64",
+            "sourceColumn": "quantity"
+          },
+          {
+            "name": "unit_price",
+            "dataType": "double",
+            "sourceColumn": "unit_price"
+          },
+          {
+            "name": "line_amount",
+            "dataType": "double",
+            "sourceColumn": "line_amount"
+          },
+          {
+            "type": "calculated",
+            "name": "GrossSale",
+            "dataType": "double",
+            "isDataTypeInferred": true,
+            "expression": " Sales[line_amount] + RELATED(ShippingMethod[base_cost])"
+          },
+          {
+            "type": "calculated",
+            "name": "NetSale",
+            "dataType": "double",
+            "isDataTypeInferred": true,
+            "expression": "Sales[GrossSale]- RELATED(ShippingMethod[base_cost])"
+          },
+          {
+            "type": "calculated",
+            "name": "SaleType",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": " IF(Sales[quantity] > 1, \"Big Sale\", \"Simple Sale\")"
+          },
+          {
+            "type": "calculated",
+            "name": "SaleCostType",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": " IF(SUM(Sales[line_amount]) < RELATED(ShippingMethod[base_cost]), \"Simple Cost\", \"Big Cost\")"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;BookstoreDW\",",
+                "    dbo_Fact_Sales = Source{[Schema=\"dbo\",Item=\"Fact_Sales\"]}[Data]",
+                "in",
+                "    dbo_Fact_Sales"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "TotalQuantity",
+            "expression": " SUM(Sales[quantity])"
+          },
+          {
+            "name": "TotalBigSaleQuantity",
+            "expression": " CALCULATE(Sales[TotalQuantity], Sales[SaleType] = \"Big Sale\")"
+          },
+          {
+            "name": "TotalSimpleSaleQuantity",
+            "expression": " CALCULATE(Sales[TotalQuantity], Sales[SaleType] =  \"Simple Sale\")"
+          },
+          {
+            "name": "TotalQuantityBigCost",
+            "expression": " CALCULATE(Sales[TotalQuantity], Sales[SaleCostType] = \"Big Cost\")"
+          },
+          {
+            "name": "TotalQuantitySimpleCost",
+            "expression": " CALCULATE(Sales[TotalQuantity], Sales[SaleCostType] = \"Simple Cost\")"
+          },
+          {
+            "name": "TotalNetSales",
+            "expression": " SUM(Sales[NetSale])"
+          },
+          {
+            "name": "TotalBigSalesNetSales",
+            "expression": " CALCULATE(Sales[TotalNetSales], Sales[SaleType] = \"Big Sale\")"
+          },
+          {
+            "name": "TotalSimpleSalesNetSales",
+            "expression": " CALCULATE(Sales[TotalNetSales], Sales[SaleType] = \"Simple Sale\")"
+          },
+          {
+            "name": "TotalNetSalesBigCost",
+            "expression": " CALCULATE([TotalNetSales], Sales[SaleCostType] = \"Big Cost\")"
+          },
+          {
+            "name": "TotalNetSalesSimpleCost",
+            "expression": " CALCULATE([TotalNetSales], Sales[SaleCostType] = \"Simple Cost\")"
+          },
+          {
+            "name": "TotalGrossSales",
+            "expression": " SUM(Sales[GrossSale])"
+          },
+          {
+            "name": "TotalBigSalesGrossSales",
+            "expression": " CALCULATE(Sales[TotalGrossSales], Sales[SaleType] = \"Big Sale\")"
+          },
+          {
+            "name": "TotalSimpleSaleGrossSale",
+            "expression": " CALCULATE(Sales[TotalGrossSales], Sales[SaleType] = \"Simple Sale\")"
+          },
+          {
+            "name": "TotalBigCostGrossSales",
+            "expression": " CALCULATE(Sales[TotalGrossSales], Sales[SaleCostType] = \"Big Cost\")"
+          },
+          {
+            "name": "TotalSimpleCostGrossSales",
+            "expression": " CALCULATE(Sales[TotalGrossSales], Sales[SaleCostType] = \"Simple Cost\")"
+          },
+          {
+            "name": "TotalSales",
+            "expression": " DISTINCTCOUNT(Sales[OrderId])"
+          },
+          {
+            "name": "TotalProfit",
+            "expression": " DIVIDE([TotalNetSales] ,  [TotalGrossSales])"
+          },
+          {
+            "name": "TotalProfitBigSales",
+            "expression": " DIVIDE([TotalBigSalesNetSales], [TotalBigSalesGrossSales])"
+          },
+          {
+            "name": "TotalProfitSimpleSales",
+            "expression": " DIVIDE([TotalSimpleSalesNetSales], [TotalSimpleSaleGrossSale])"
+          },
+          {
+            "name": "TotalProfitBigCost",
+            "expression": " DIVIDE([TotalNetSalesBigCost], [TotalBigCostGrossSales])"
+          },
+          {
+            "name": "TotalProfitSimpleCost",
+            "expression": " DIVIDE([TotalNetSalesSimpleCost], [TotalSimpleCostGrossSales])"
+          }
+        ]
+      },
+      {
+        "name": "Address",
+        "columns": [
+          {
+            "name": "address_sk",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "address_sk"
+          },
+          {
+            "name": "address_id",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "address_id"
+          },
+          {
+            "name": "city",
+            "dataType": "string",
+            "sourceColumn": "city"
+          },
+          {
+            "name": "country_name",
+            "dataType": "string",
+            "sourceColumn": "country_name"
+          },
+          {
+            "name": "street_number",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "street_number"
+          },
+          {
+            "name": "street_name",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "street_name"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;BookstoreDW\",",
+                "    dbo_DimAddress = Source{[Schema=\"dbo\",Item=\"DimAddress\"]}[Data]",
+                "in",
+                "    dbo_DimAddress"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Book",
+        "columns": [
+          {
+            "name": "book_sk",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "book_sk"
+          },
+          {
+            "name": "book_id",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "book_id"
+          },
+          {
+            "name": "title",
+            "dataType": "string",
+            "sourceColumn": "title"
+          },
+          {
+            "name": "isbn13",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "isbn13"
+          },
+          {
+            "name": "num_pages",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "num_pages"
+          },
+          {
+            "name": "publication_date",
+            "dataType": "dateTime",
+            "sourceColumn": "publication_date"
+          },
+          {
+            "name": "publisher_name",
+            "dataType": "string",
+            "sourceColumn": "publisher_name"
+          },
+          {
+            "name": "language_code",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "language_code"
+          },
+          {
+            "name": "language_name",
+            "dataType": "string",
+            "sourceColumn": "language_name"
+          },
+          {
+            "name": "author_name",
+            "dataType": "string",
+            "sourceColumn": "author_name"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;BookstoreDW\",",
+                "    dbo_DimBook = Source{[Schema=\"dbo\",Item=\"DimBook\"]}[Data]",
+                "in",
+                "    dbo_DimBook"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Customer",
+        "columns": [
+          {
+            "name": "customer_sk",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "customer_sk"
+          },
+          {
+            "name": "customer_id",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "customer_id"
+          },
+          {
+            "name": "first_name",
+            "dataType": "string",
+            "sourceColumn": "first_name"
+          },
+          {
+            "name": "last_name",
+            "dataType": "string",
+            "sourceColumn": "last_name"
+          },
+          {
+            "name": "email",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "email"
+          },
+          {
+            "type": "calculated",
+            "name": "FullName",
+            "dataType": "string",
+            "isDataTypeInferred": true,
+            "expression": " CONCATENATE(CONCATENATE(Customer[first_name], \" \"), Customer[last_name])"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;BookstoreDW\",",
+                "    dbo_DimCustomer = Source{[Schema=\"dbo\",Item=\"DimCustomer\"]}[Data]",
+                "in",
+                "    dbo_DimCustomer"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "Date",
+        "columns": [
+          {
+            "name": "DateKey",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "DateKey"
+          },
+          {
+            "name": "FullDate",
+            "dataType": "dateTime",
+            "sourceColumn": "FullDate"
+          },
+          {
+            "name": "DayNumberOfWeek",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "DayNumberOfWeek"
+          },
+          {
+            "name": "DayNameOfWeek",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "DayNameOfWeek"
+          },
+          {
+            "name": "DayNumberOfMonth",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "DayNumberOfMonth"
+          },
+          {
+            "name": "DayNumberOfYear",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "DayNumberOfYear"
+          },
+          {
+            "name": "WeekNumberOfYear",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "WeekNumberOfYear"
+          },
+          {
+            "name": "MonthName",
+            "dataType": "string",
+            "sourceColumn": "MonthName"
+          },
+          {
+            "name": "MonthNumberOfYear",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "MonthNumberOfYear"
+          },
+          {
+            "name": "CalendarQuarter",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "CalendarQuarter"
+          },
+          {
+            "name": "CalendarYear",
+            "dataType": "int64",
+            "sourceColumn": "CalendarYear"
+          },
+          {
+            "name": "CalendarSemester",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "CalendarSemester"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;BookstoreDW\",",
+                "    dbo_DimDate = Source{[Schema=\"dbo\",Item=\"DimDate\"]}[Data]",
+                "in",
+                "    dbo_DimDate"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "ShippingMethod",
+        "columns": [
+          {
+            "name": "shipping_method_sk",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "shipping_method_sk"
+          },
+          {
+            "name": "method_id",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "method_id"
+          },
+          {
+            "name": "method_name",
+            "dataType": "string",
+            "sourceColumn": "method_name"
+          },
+          {
+            "name": "base_cost",
+            "dataType": "double",
+            "sourceColumn": "base_cost"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Partition",
+            "dataView": "full",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #\"SQL/localhost;BookstoreDW\",",
+                "    dbo_DimShippingMethod = Source{[Schema=\"dbo\",Item=\"DimShippingMethod\"]}[Data]",
+                "in",
+                "    dbo_DimShippingMethod"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "a6ea2cab-7f39-4acd-9ce5-f2f98e7a5054",
+        "fromTable": "Sales",
+        "fromColumn": "dest_address_sk",
+        "toTable": "Address",
+        "toColumn": "address_sk"
+      },
+      {
+        "name": "4ab50a47-68c4-49e3-bf52-9bce831647aa",
+        "fromTable": "Sales",
+        "fromColumn": "book_sk",
+        "toTable": "Book",
+        "toColumn": "book_sk"
+      },
+      {
+        "name": "433443af-2651-4d7b-9af4-493bfb0c29a2",
+        "fromTable": "Sales",
+        "fromColumn": "customer_sk",
+        "toTable": "Customer",
+        "toColumn": "customer_sk"
+      },
+      {
+        "name": "6392468e-daa8-454e-9c19-1d3d95aa7214",
+        "fromTable": "Sales",
+        "fromColumn": "order_date_key",
+        "toTable": "Date",
+        "toColumn": "DateKey"
+      },
+      {
+        "name": "b855e32f-bdcb-4cad-8bb6-23afe7a807cb",
+        "fromTable": "Sales",
+        "fromColumn": "shipping_method_sk",
+        "toTable": "ShippingMethod",
+        "toColumn": "shipping_method_sk"
+      }
+    ],
+    "perspectives": [
+      {
+        "name": "HR",
+        "tables": [
+          {
+            "name": "Date",
+            "columns": [
+              {
+                "name": "CalendarYear"
+              },
+              {
+                "name": "MonthName"
+              }
+            ]
+          },
+          {
+            "name": "Sales",
+            "measures": [
+              {
+                "name": "TotalBigSalesNetSales"
+              },
+              {
+                "name": "TotalNetSales"
+              },
+              {
+                "name": "TotalProfit"
+              },
+              {
+                "name": "TotalSimpleSalesNetSales"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Sales",
+        "tables": [
+          {
+            "name": "Address",
+            "columns": [
+              {
+                "name": "city"
+              },
+              {
+                "name": "country_name"
+              }
+            ]
+          },
+          {
+            "name": "Book",
+            "columns": [
+              {
+                "name": "author_name"
+              },
+              {
+                "name": "language_name"
+              },
+              {
+                "name": "publisher_name"
+              },
+              {
+                "name": "title"
+              }
+            ]
+          },
+          {
+            "name": "Customer",
+            "columns": [
+              {
+                "name": "FullName"
+              }
+            ]
+          },
+          {
+            "name": "Date",
+            "columns": [
+              {
+                "name": "CalendarYear"
+              },
+              {
+                "name": "MonthName"
+              }
+            ]
+          },
+          {
+            "name": "Sales",
+            "measures": [
+              {
+                "name": "TotalBigCostGrossSales"
+              },
+              {
+                "name": "TotalBigSaleQuantity"
+              },
+              {
+                "name": "TotalBigSalesGrossSales"
+              },
+              {
+                "name": "TotalBigSalesNetSales"
+              },
+              {
+                "name": "TotalGrossSales"
+              },
+              {
+                "name": "TotalNetSales"
+              },
+              {
+                "name": "TotalNetSalesBigCost"
+              },
+              {
+                "name": "TotalNetSalesSimpleCost"
+              },
+              {
+                "name": "TotalProfit"
+              },
+              {
+                "name": "TotalProfitBigCost"
+              },
+              {
+                "name": "TotalProfitBigSales"
+              },
+              {
+                "name": "TotalProfitSimpleCost"
+              },
+              {
+                "name": "TotalProfitSimpleSales"
+              },
+              {
+                "name": "TotalQuantity"
+              },
+              {
+                "name": "TotalQuantityBigCost"
+              },
+              {
+                "name": "TotalQuantitySimpleCost"
+              },
+              {
+                "name": "TotalSimpleCostGrossSales"
+              },
+              {
+                "name": "TotalSimpleSaleGrossSale"
+              },
+              {
+                "name": "TotalSimpleSaleQuantity"
+              },
+              {
+                "name": "TotalSimpleSalesNetSales"
+              }
+            ]
+          },
+          {
+            "name": "ShippingMethod",
+            "columns": [
+              {
+                "name": "method_name"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "annotations": [
+      {
+        "name": "ClientCompatibilityLevel",
+        "value": "700"
+      }
+    ]
+  },
+  "id": "SemanticModel"
+}
