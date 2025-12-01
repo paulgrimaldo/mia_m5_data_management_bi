@@ -11,8 +11,8 @@
   DTS:LocaleID="16394"
   DTS:ObjectName="DimAddressMethod"
   DTS:PackageType="5"
-  DTS:VersionBuild="74"
-  DTS:VersionGUID="{A75AA3E8-01D4-4311-BAF8-CA77FD902367}">
+  DTS:VersionBuild="77"
+  DTS:VersionGUID="{714B06B7-FA52-4E45-BB9B-D41595316404}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -26,6 +26,18 @@
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=localhost;Initial Catalog=Bookstore;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-DimOrderStatusMethod-{5865F6C1-AA4A-4FB2-9C30-AF96595127B5}localhost.Bookstore;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.BookstoreDW]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{53A42EF9-5D29-4C43-9545-87FEE2B2A121}"
+      DTS:ObjectName="localhost.BookstoreDW">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=BookstoreDW;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-DimAddressMethod-{53A42EF9-5D29-4C43-9545-87FEE2B2A121}localhost.BookstoreDW;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -64,7 +76,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{75F9CD8B-5704-49A8-AA98-E418097E010E}"
+          SQLTask:Connection="{53A42EF9-5D29-4C43-9545-87FEE2B2A121}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE staging.adress;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -152,8 +164,8 @@ where [refTable].[address_id] = ?</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Busqueda.Connections[OleDbConnection]"
-                  connectionManagerID="{75F9CD8B-5704-49A8-AA98-E418097E010E}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[localhost.BookstoreDW]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.BookstoreDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.BookstoreDW]"
                   description="Connection manager used to access lookup data."
                   name="OleDbConnection" />
               </connections>
@@ -500,8 +512,8 @@ where [refTable].[address_id] = ?</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Load  Address.Connections[OleDbConnection]"
-                  connectionManagerID="{75F9CD8B-5704-49A8-AA98-E418097E010E}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[localhost.BookstoreDW]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.BookstoreDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.BookstoreDW]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -673,8 +685,8 @@ where [refTable].[address_id] = ?</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Updated Existing Address Method.Connections[OleDbConnection]"
-                  connectionManagerID="{75F9CD8B-5704-49A8-AA98-E418097E010E}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[localhost.BookstoreDW]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.BookstoreDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.BookstoreDW]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -842,7 +854,7 @@ where [refTable].[address_id] = ?</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{75F9CD8B-5704-49A8-AA98-E418097E010E}"
+          SQLTask:Connection="{53A42EF9-5D29-4C43-9545-87FEE2B2A121}"
           SQLTask:SqlStatementSource="EXECUTE [dbo].[GetLastPackageRowVersion] @tableName = 'Address'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
@@ -863,7 +875,7 @@ where [refTable].[address_id] = ?</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{75F9CD8B-5704-49A8-AA98-E418097E010E}"
+          SQLTask:Connection="{53A42EF9-5D29-4C43-9545-87FEE2B2A121}"
           SQLTask:SqlStatementSource="EXECUTE [dbo].[DW_MergeDimAddress] " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -879,7 +891,7 @@ where [refTable].[address_id] = ?</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{75F9CD8B-5704-49A8-AA98-E418097E010E}"
+          SQLTask:Connection="{53A42EF9-5D29-4C43-9545-87FEE2B2A121}"
           SQLTask:SqlStatementSource="EXECUTE [dbo].[UpdateLastPackageRowVersion]  @tableName ='Address' ,@lastRowVersion = ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ParameterBinding
             SQLTask:ParameterName="0"
@@ -1169,7 +1181,7 @@ where [refTable].[address_id] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="58.8602799479167,32.6998468606432,111.6127734375,11.609375"
+              BoundingBox="58.8602799479165,32.6998468606432,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1226,7 +1238,7 @@ where [refTable].[address_id] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">false</Value>
+          type="q2:boolean">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -1236,7 +1248,7 @@ where [refTable].[address_id] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:string">0</Value>
+          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>

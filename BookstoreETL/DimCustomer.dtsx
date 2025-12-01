@@ -11,8 +11,8 @@
   DTS:LocaleID="16394"
   DTS:ObjectName="DimCustomer"
   DTS:PackageType="5"
-  DTS:VersionBuild="65"
-  DTS:VersionGUID="{713E45C2-080D-4875-83CF-AA7FF99F3249}">
+  DTS:VersionBuild="67"
+  DTS:VersionGUID="{2D4A8902-9E07-4319-A06B-E2AE60E12B68}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -26,6 +26,18 @@
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=localhost;Initial Catalog=Bookstore;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-DimOrderStatusMethod-{C584165E-2B44-4709-ADDE-F2EEC5FFDFA7}localhost.Bookstore;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.BookstoreDW]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{D6DC9CA1-779D-4269-90BA-382F4507E518}"
+      DTS:ObjectName="localhost.BookstoreDW">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=BookstoreDW;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-DimCustomer-{D6DC9CA1-779D-4269-90BA-382F4507E518}localhost.BookstoreDW;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -64,7 +76,7 @@
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{75F9CD8B-5704-49A8-AA98-E418097E010E}"
+          SQLTask:Connection="{D6DC9CA1-779D-4269-90BA-382F4507E518}"
           SQLTask:SqlStatementSource="TRUNCATE TABLE staging.customer;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -152,8 +164,8 @@ where [refTable].[customer_id] = ?</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Busqueda.Connections[OleDbConnection]"
-                  connectionManagerID="{75F9CD8B-5704-49A8-AA98-E418097E010E}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[localhost.BookstoreDW]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.BookstoreDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.BookstoreDW]"
                   description="Connection manager used to access lookup data."
                   name="OleDbConnection" />
               </connections>
@@ -476,8 +488,8 @@ where [refTable].[customer_id] = ?</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Load Customer.Connections[OleDbConnection]"
-                  connectionManagerID="{75F9CD8B-5704-49A8-AA98-E418097E010E}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[localhost.BookstoreDW]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.BookstoreDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.BookstoreDW]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -635,8 +647,8 @@ where [refTable].[customer_id] = ?</property>
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Updated Existing Customer.Connections[OleDbConnection]"
-                  connectionManagerID="{75F9CD8B-5704-49A8-AA98-E418097E010E}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[localhost.BookstoreDW]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.BookstoreDW]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.BookstoreDW]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -790,7 +802,7 @@ where [refTable].[customer_id] = ?</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{75F9CD8B-5704-49A8-AA98-E418097E010E}"
+          SQLTask:Connection="{D6DC9CA1-779D-4269-90BA-382F4507E518}"
           SQLTask:SqlStatementSource="EXECUTE [dbo].[GetLastPackageRowVersion] @tableName = 'Customer'"
           SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ResultBinding
@@ -811,7 +823,7 @@ where [refTable].[customer_id] = ?</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{75F9CD8B-5704-49A8-AA98-E418097E010E}"
+          SQLTask:Connection="{D6DC9CA1-779D-4269-90BA-382F4507E518}"
           SQLTask:SqlStatementSource="EXECUTE [dbo].[DW_MergeDimCustomer] " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
@@ -827,7 +839,7 @@ where [refTable].[customer_id] = ?</property>
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
-          SQLTask:Connection="{75F9CD8B-5704-49A8-AA98-E418097E010E}"
+          SQLTask:Connection="{D6DC9CA1-779D-4269-90BA-382F4507E518}"
           SQLTask:SqlStatementSource="EXECUTE [dbo].[UpdateLastPackageRowVersion]  @tableName ='Customer' ,@lastRowVersion = ?" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
           <SQLTask:ParameterBinding
             SQLTask:ParameterName="0"
