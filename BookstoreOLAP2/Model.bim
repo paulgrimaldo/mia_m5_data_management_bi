@@ -91,28 +91,35 @@
             "name": "GrossSale",
             "dataType": "double",
             "isDataTypeInferred": true,
-            "expression": " Sales[line_amount] + RELATED(ShippingMethod[base_cost])"
+            "expression": "Sales[line_amount] + Sales[ShippingCost]"
           },
           {
             "type": "calculated",
             "name": "NetSale",
             "dataType": "double",
             "isDataTypeInferred": true,
-            "expression": "Sales[GrossSale]- RELATED(ShippingMethod[base_cost])"
+            "expression": "Sales[GrossSale]- Sales[ShippingCost]"
           },
           {
             "type": "calculated",
             "name": "SaleType",
             "dataType": "string",
             "isDataTypeInferred": true,
-            "expression": " IF(Sales[quantity] > 1, \"Big Sale\", \"Simple Sale\")"
+            "expression": "IF(CALCULATE(SUM(Sales[quantity]), ALLEXCEPT(Sales, Sales[OrderId])) > 1, \"Big Sale\", \"Simple Sale\")"
           },
           {
             "type": "calculated",
             "name": "SaleCostType",
             "dataType": "string",
             "isDataTypeInferred": true,
-            "expression": " IF(SUM(Sales[line_amount]) < RELATED(ShippingMethod[base_cost]), \"Simple Cost\", \"Big Cost\")"
+            "expression": "IF(CALCULATE(SUM(Sales[line_amount]), ALLEXCEPT(Sales,Sales[OrderId])) < RELATED(ShippingMethod[base_cost]), \"Big Cost\", \"Simple Cost\")"
+          },
+          {
+            "type": "calculated",
+            "name": "ShippingCost",
+            "dataType": "double",
+            "isDataTypeInferred": true,
+            "expression": " Sales[quantity] * DIVIDE(RELATED(ShippingMethod[base_cost]), CALCULATE(SUM(Sales[quantity]), ALLEXCEPT(Sales, Sales[OrderId])))"
           }
         ],
         "partitions": [
@@ -215,6 +222,27 @@
           {
             "name": "TotalProfitSimpleCost",
             "expression": " DIVIDE([TotalNetSalesSimpleCost], [TotalSimpleCostGrossSales])"
+          },
+          {
+            "name": "AverageBasketSize",
+            "expression": " DIVIDE([TotalQuantity], [TotalSales])"
+          },
+          {
+            "name": "TotalQuantityCustomers",
+            "expression": " DISTINCTCOUNT(Sales[customer_sk])"
+          },
+          {
+            "name": "TotalShippingCosts",
+            "expression": [
+              " SUMX(",
+              "    VALUES(Sales[OrderId]),",
+              "    CALCULATE(MAX(ShippingMethod[base_cost]))",
+              ")"
+            ]
+          },
+          {
+            "name": "ShippingCostRatio",
+            "expression": " DIVIDE([TotalGrossSales] - [TotalNetSales], [TotalGrossSales])"
           }
         ]
       },
